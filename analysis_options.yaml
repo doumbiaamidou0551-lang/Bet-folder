@@ -1,0 +1,4 @@
+# Règles d'analyse minimales pour le prototype.
+linter:
+  rules:
+    avoid_print: true
