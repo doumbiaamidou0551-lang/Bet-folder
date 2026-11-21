@@ -31,6 +31,10 @@ jobs:
           rm -rf tmp_android_app
           sed -i 's/android:label="bet_folder"/android:label="BET-FOLDER"/' android/app/src/main/AndroidManifest.xml
 
+      - name: Installer l'icône BET-FOLDER
+        run: |
+          if [ -d android_icons ]; then cp -r android_icons/. android/app/src/main/res/; fi
+
       - name: Installer les dépendances
         run: flutter pub get
 
