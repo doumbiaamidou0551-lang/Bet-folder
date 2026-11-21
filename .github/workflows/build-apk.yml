@@ -1,1 +1,52 @@
+name: Compiler l'APK Android
 
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Installer Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Créer la partie Android du projet
+        run: |
+          flutter create tmp_android_app --platforms=android --project-name bet_folder --org com.betfolder
+          cp -r tmp_android_app/android ./android
+          rm -rf tmp_android_app
+          sed -i 's/android:label="bet_folder"/android:label="BET-FOLDER"/' android/app/src/main/AndroidManifest.xml
+
+      - name: Installer les dépendances
+        run: flutter pub get
+
+      - name: Analyse du code (informatif)
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+        continue-on-error: true
+
+      - name: Tests (informatif)
+        run: flutter test
+        continue-on-error: true
+
+      - name: Compiler l'APK
+        run: flutter build apk --release
+
+      - name: Publier l'APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: bet-folder-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
