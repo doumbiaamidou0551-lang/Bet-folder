@@ -95,6 +95,18 @@ class DemoData {
     ],
     teamStatsNote:
         'Moyennes par match sur les 10 derniers matchs ; Néris FC à domicile, Vallon SC à l’extérieur (données démo).',
+    htProbs: Probabilities1X2(33, 47, 20),
+    htft: [
+      HtFtEntry(ht: 0, ft: 0, pct: 26, odds: 3.60),
+      HtFtEntry(ht: 0, ft: 1, pct: 5, odds: 17.00),
+      HtFtEntry(ht: 0, ft: 2, pct: 2, odds: 41.00),
+      HtFtEntry(ht: 1, ft: 0, pct: 17, odds: 5.20),
+      HtFtEntry(ht: 1, ft: 1, pct: 21, odds: 4.60),
+      HtFtEntry(ht: 1, ft: 2, pct: 9, odds: 8.50),
+      HtFtEntry(ht: 2, ft: 0, pct: 3, odds: 26.00),
+      HtFtEntry(ht: 2, ft: 1, pct: 2, odds: 23.00),
+      HtFtEntry(ht: 2, ft: 2, pct: 15, odds: 7.00),
+    ],
   );
 
   static const List<DemoMatch> matches = [

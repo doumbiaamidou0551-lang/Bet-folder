@@ -9,6 +9,7 @@ import '../../widgets/app_chip.dart';
 import '../../widgets/market_card.dart';
 import '../../widgets/probability_bar.dart';
 import '../../widgets/tags.dart';
+import 'htft_tab.dart';
 import 'stats_tab.dart';
 
 class MatchAnalysisScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class MatchAnalysisScreen extends StatefulWidget {
 }
 
 class _MatchAnalysisScreenState extends State<MatchAnalysisScreen> {
-  int _tab = 0; // 0 = Marchés, 1 = Stats
+  int _tab = 0; // 0 = Marchés, 1 = Stats, 2 = Mi-temps/Fin
 
   List<Widget> _marketsSection(MatchAnalysis analysis) {
     return [
@@ -135,12 +136,19 @@ class _MatchAnalysisScreenState extends State<MatchAnalysisScreen> {
                   selected: _tab == 1,
                   onSelected: (_) => setState(() => _tab = 1),
                 ),
+                AppChip(
+                  label: 'Mi-temps/Fin',
+                  selected: _tab == 2,
+                  onSelected: (_) => setState(() => _tab = 2),
+                ),
               ],
             ),
             if (_tab == 0)
               ..._marketsSection(analysis)
+            else if (_tab == 1)
+              StatsTab(match: match, analysis: analysis)
             else
-              StatsTab(match: match, analysis: analysis),
+              HtFtTab(match: match, analysis: analysis),
           ] else
             const Padding(
               padding: EdgeInsets.only(top: 12),
@@ -224,7 +232,7 @@ class _ScoreBox extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 10,
               color: highlighted ? AppColors.accent : AppColors.textMuted,
             ),
           ),

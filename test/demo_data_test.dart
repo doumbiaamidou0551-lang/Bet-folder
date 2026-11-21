@@ -44,6 +44,25 @@ void main() {
     expect(a.teamStats.length, 4);
   });
 
+  test('mi-temps / fin de match : 9 combinaisons cohérentes avec le 1X2', () {
+    final a = DemoData.nerisVallon;
+    final m = DemoData.matches.first;
+    final probs = m.probs!;
+    int ftSum(int ft) =>
+        a.htft.where((e) => e.ft == ft).fold<int>(0, (s, e) => s + e.pct);
+    int htSum(int ht) =>
+        a.htft.where((e) => e.ht == ht).fold<int>(0, (s, e) => s + e.pct);
+    expect(a.htft.length, 9);
+    expect(a.htft.fold<int>(0, (s, e) => s + e.pct), 100);
+    expect(ftSum(0), probs.home);
+    expect(ftSum(1), probs.draw);
+    expect(ftSum(2), probs.away);
+    expect(htSum(0), a.htProbs.home);
+    expect(htSum(1), a.htProbs.draw);
+    expect(htSum(2), a.htProbs.away);
+    expect(a.htProbs.total, 100);
+  });
+
   testWidgets('l’accueil affiche le nom et le marquage démo', (tester) async {
     await tester.pumpWidget(const BetFolderApp());
     expect(find.text('BET-FOLDER'), findsOneWidget);

@@ -20,3 +20,7 @@ Splash, calendrier, Corner & Card Lab, favoris dédiés, paramètres, notificati
 
 ## Organisation
 `lib/core` (thème, textes, formats, stockage en mémoire) · `lib/domain` (calculs purs : tickets, bankroll, calibration) · `lib/data` (modèles et données fictives) · `lib/widgets` · `lib/features` (écrans) · `test` (tests des calculs et du lancement).
+
+## Ajouts de la version 3d
+- Onglet **Mi-temps/Fin** dans l’analyse d’un match : résultat à la mi-temps et les 9 combinaisons mi-temps / fin de match (cote, probabilité implicite, écart). Données de démonstration.
+- **Icône** de l’application : dossier `android_icons` (copié dans le projet Android par le flux de compilation). `store/icon-512.png` servira pour Google Play.

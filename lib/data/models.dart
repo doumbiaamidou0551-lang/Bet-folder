@@ -98,6 +98,34 @@ class TeamStatRow {
   final double away;
 }
 
+/// Une combinaison « résultat à la mi-temps / résultat final ».
+class HtFtEntry {
+  const HtFtEntry({
+    required this.ht,
+    required this.ft,
+    required this.pct,
+    required this.odds,
+  });
+
+  /// 0 = domicile, 1 = nul, 2 = extérieur.
+  final int ht;
+  final int ft;
+  final int pct;
+  final double odds;
+
+  static const List<String> _labels = ['Dom.', 'Nul', 'Ext.'];
+
+  String get name => '${_labels[ht]} / ${_labels[ft]}';
+
+  MarketEntry toMarketEntry() => MarketEntry(
+        name: name,
+        estimatedPct: pct,
+        odds: odds,
+        confidence: pct >= 10 ? Confidence.moyenne : Confidence.faible,
+        risk: pct >= 20 ? RiskLevel.modere : RiskLevel.risque,
+      );
+}
+
 class MatchAnalysis {
   const MatchAnalysis({
     required this.suggestions,
@@ -109,6 +137,8 @@ class MatchAnalysis {
     required this.players,
     required this.teamStats,
     required this.teamStatsNote,
+    required this.htProbs,
+    required this.htft,
   });
 
   /// Deux scores suggérés, mis en relief.
@@ -123,6 +153,12 @@ class MatchAnalysis {
   final List<PlayerStat> players;
   final List<TeamStatRow> teamStats;
   final String teamStatsNote;
+
+  /// Résultat à la mi-temps (1X2 de la première période).
+  final Probabilities1X2 htProbs;
+
+  /// Les 9 combinaisons mi-temps / fin de match.
+  final List<HtFtEntry> htft;
 }
 
 class DemoMatch {

@@ -27,7 +27,7 @@ class PerformanceView extends StatelessWidget {
             const SizedBox(width: 8),
             Expanded(child: _Kpi(label: 'Réussite', value: fmtPct(observedPct(buckets)))),
             const SizedBox(width: 8),
-            Expanded(child: _Kpi(label: 'Annoncé moyen', value: fmtPct(predictedPct(buckets)))),
+            Expanded(child: _Kpi(label: 'Prévu moyen', value: fmtPct(predictedPct(buckets)))),
           ],
         ),
         const SectionTitle('Prévu contre observé'),
