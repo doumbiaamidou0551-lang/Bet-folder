@@ -1,0 +1,48 @@
+name: Données du jour
+
+on:
+  schedule:
+    - cron: "20 0 * * *"   # chaque jour à 00h20 UTC (même heure en Côte d'Ivoire)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: donnees-du-jour
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Tests du moteur statistique
+        working-directory: engine
+        run: python -m unittest discover -s tests -v
+        continue-on-error: true
+
+      - name: Générer les données du jour
+        working-directory: engine
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: python -m bet_engine.pipeline --out ../data/latest.json
+
+      - name: Publier les données
+        run: |
+          git config user.name "bet-folder-bot"
+          git config user.email "bet-folder-bot@users.noreply.github.com"
+          git add data/latest.json
+          if git diff --cached --quiet; then
+            echo "Aucun changement"
+          else
+            git commit -m "Données du jour"
+            git push
+          fi
