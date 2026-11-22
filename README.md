@@ -24,3 +24,10 @@ Splash, calendrier, Corner & Card Lab, favoris dédiés, paramètres, notificati
 ## Ajouts de la version 3d
 - Onglet **Mi-temps/Fin** dans l’analyse d’un match : résultat à la mi-temps et les 9 combinaisons mi-temps / fin de match (cote, probabilité implicite, écart). Données de démonstration.
 - **Icône** de l’application : dossier `android_icons` (copié dans le projet Android par le flux de compilation). `store/icon-512.png` servira pour Google Play.
+
+## Version 3e : données réelles (football) et moteur statistique
+- `engine/` : moteur Python (Poisson / Dixon-Coles, marchés de buts, scores exacts, mi-temps/fin de match), testé sur un championnat fictif aux forces connues (`python -m unittest discover -s tests`).
+- `.github/workflows/daily-data.yml` : chaque jour à 00h20 UTC, récupère les matchs (football-data.org), calcule les probabilités et publie `data/latest.json`.
+- L’application ne lit pas encore ce fichier : elle sera branchée dessus dès que le premier fichier réel existe (voir `GUIDE_DONNEES_REELLES.md`).
+- `tools/make_icon.py` génère l’icône (monogramme BF, flèche verte, lueurs bleue et rouge).
+- **Écran de démarrage** (`lib/features/splash`) : portrait en fond, monogramme BF, slogan « Analyse · Probabilités · Discipline », sports couverts. Touchez l’écran pour passer. Le fond de lancement Android est aussi bleu nuit.

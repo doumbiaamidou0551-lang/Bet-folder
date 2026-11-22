@@ -63,8 +63,12 @@ void main() {
     expect(a.htProbs.total, 100);
   });
 
-  testWidgets('l’accueil affiche le nom et le marquage démo', (tester) async {
+  testWidgets('l’écran de démarrage puis l’accueil affichent le marquage démo', (tester) async {
     await tester.pumpWidget(const BetFolderApp());
+    expect(find.text('BET-FOLDER'), findsOneWidget);
+    expect(find.text('Analyse · Probabilités · Discipline'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 3));
+    await tester.pumpAndSettle();
     expect(find.text('BET-FOLDER'), findsOneWidget);
     expect(find.text('DONNÉES DÉMO'), findsWidgets);
   });

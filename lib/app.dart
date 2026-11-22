@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/app_theme.dart';
-import 'features/shell/main_shell.dart';
+import 'features/splash/splash_screen.dart';
 
 class BetFolderApp extends StatelessWidget {
   const BetFolderApp({super.key});
@@ -12,7 +12,7 @@ class BetFolderApp extends StatelessWidget {
       title: 'BET-FOLDER',
       debugShowCheckedModeBanner: false,
       theme: buildAppTheme(),
-      home: const MainShell(),
+      home: const SplashScreen(),
     );
   }
 }
