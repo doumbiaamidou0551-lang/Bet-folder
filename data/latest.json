@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22T22:36:55Z",
+ "generated_at": "2026-11-23T01:37:50Z",
  "data_sources": [
   {
    "name": "football-data.org",
    "sport": "football",
-   "retrieved_at": "2026-11-22T22:36:55Z"
+   "retrieved_at": "2026-11-23T01:37:50Z"
   }
  ],
  "sports": {
@@ -133,7 +133,7 @@
        {
         "ht": 0,
         "ft": 1,
-        "pct": 5
+        "pct": 6
        },
        {
         "ht": 0,
@@ -163,7 +163,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 6
+        "pct": 5
        },
        {
         "ht": 2,
@@ -1345,7 +1345,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 2.594,
-      "lambda_away": 0.833,
+      "lambda_away": 0.834,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
@@ -1722,7 +1722,7 @@
      "away": "Real Betis Balompié",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.338,
+      "lambda_home": 1.339,
       "lambda_away": 1.854,
       "rho": 0.0,
       "confidence": "faible",
@@ -2100,7 +2100,7 @@
      "away": "PAE AEK",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 4.22,
+      "lambda_home": 4.219,
       "lambda_away": 1.498,
       "rho": 0.0,
       "confidence": "faible",
@@ -2668,7 +2668,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 1.78,
-      "lambda_away": 1.276,
+      "lambda_away": 1.277,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -3424,7 +3424,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 1.201,
-      "lambda_away": 3.134,
+      "lambda_away": 3.133,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -3991,7 +3991,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 2.978,
-      "lambda_away": 1.162,
+      "lambda_away": 1.163,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
@@ -6370,7 +6370,7 @@
        {
         "ht": 0,
         "ft": 1,
-        "pct": 3
+        "pct": 4
        },
        {
         "ht": 0,
@@ -6400,7 +6400,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 4
+        "pct": 3
        },
        {
         "ht": 2,
@@ -8148,7 +8148,7 @@
      "away": "Club Atlético de Madrid",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.145,
+      "lambda_home": 1.146,
       "lambda_away": 1.596,
       "rho": -0.06,
       "confidence": "moyenne",
@@ -8337,7 +8337,7 @@
      "away": "Eintracht Frankfurt",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.527,
+      "lambda_home": 2.526,
       "lambda_away": 1.271,
       "rho": 0.0,
       "confidence": "moyenne",
@@ -8449,7 +8449,7 @@
        {
         "ht": 0,
         "ft": 1,
-        "pct": 5
+        "pct": 4
        },
        {
         "ht": 0,
@@ -8479,7 +8479,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 4
+        "pct": 5
        },
        {
         "ht": 2,
@@ -9472,7 +9472,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 1.311,
-      "lambda_away": 1.755,
+      "lambda_away": 1.754,
       "rho": -0.04,
       "confidence": "moyenne",
       "sample_matches": {
@@ -11284,7 +11284,7 @@
        {
         "ht": 0,
         "ft": 1,
-        "pct": 5
+        "pct": 6
        },
        {
         "ht": 0,
@@ -11314,7 +11314,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 6
+        "pct": 5
        },
        {
         "ht": 2,
@@ -13818,7 +13818,7 @@
      "away": "AC Monza",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 3.28,
+      "lambda_home": 3.279,
       "lambda_away": 1.041,
       "rho": 0.0,
       "confidence": "moyenne",
