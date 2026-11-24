@@ -1,584 +1,17 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23T01:37:50Z",
+ "generated_at": "2026-11-24T01:36:17Z",
  "data_sources": [
   {
    "name": "football-data.org",
    "sport": "football",
-   "retrieved_at": "2026-11-23T01:37:50Z"
+   "retrieved_at": "2026-11-24T01:36:17Z"
   }
  ],
  "sports": {
   "football": {
    "status": "ok",
    "matches": [
-    {
-     "id": "fd-558519",
-     "competition": "Serie A",
-     "competition_code": "SA",
-     "kickoff_utc": "2026-11-23T19:45:00Z",
-     "home": "AC Monza",
-     "away": "ACF Fiorentina",
-     "model": {
-      "version": "poisson-dc-0.1",
-      "lambda_home": 1.758,
-      "lambda_away": 1.864,
-      "rho": 0.0,
-      "confidence": "moyenne",
-      "sample_matches": {
-       "home": 11,
-       "away": 49
-      }
-     },
-     "probs": {
-      "home": 37,
-      "draw": 22,
-      "away": 41
-     },
-     "markets": [
-      {
-       "key": "over_1_5",
-       "label": "Plus de 1,5 buts",
-       "pct": 88
-      },
-      {
-       "key": "under_1_5",
-       "label": "Moins de 1,5 buts",
-       "pct": 12
-      },
-      {
-       "key": "over_2_5",
-       "label": "Plus de 2,5 buts",
-       "pct": 70
-      },
-      {
-       "key": "under_2_5",
-       "label": "Moins de 2,5 buts",
-       "pct": 30
-      },
-      {
-       "key": "over_3_5",
-       "label": "Plus de 3,5 buts",
-       "pct": 49
-      },
-      {
-       "key": "under_3_5",
-       "label": "Moins de 3,5 buts",
-       "pct": 51
-      },
-      {
-       "key": "btts_yes",
-       "label": "Les deux équipes marquent : oui",
-       "pct": 70
-      },
-      {
-       "key": "btts_no",
-       "label": "Les deux équipes marquent : non",
-       "pct": 30
-      },
-      {
-       "key": "dc_1x",
-       "label": "Double chance 1X",
-       "pct": 59
-      },
-      {
-       "key": "dc_x2",
-       "label": "Double chance X2",
-       "pct": 63
-      },
-      {
-       "key": "dc_12",
-       "label": "Double chance 12",
-       "pct": 78
-      },
-      {
-       "key": "dnb_home",
-       "label": "Remboursé si nul : domicile",
-       "pct": 47
-      },
-      {
-       "key": "dnb_away",
-       "label": "Remboursé si nul : extérieur",
-       "pct": 53
-      }
-     ],
-     "scores": {
-      "suggestions": [
-       {
-        "score": "1-1",
-        "pct": 9
-       },
-       {
-        "score": "1-2",
-        "pct": 8
-       }
-      ],
-      "alternative": {
-       "score": "2-1",
-       "pct": 8
-      }
-     },
-     "htft": {
-      "ht": {
-       "home": 31,
-       "draw": 36,
-       "away": 33
-      },
-      "combos": [
-       {
-        "ht": 0,
-        "ft": 0,
-        "pct": 22
-       },
-       {
-        "ht": 0,
-        "ft": 1,
-        "pct": 6
-       },
-       {
-        "ht": 0,
-        "ft": 2,
-        "pct": 3
-       },
-       {
-        "ht": 1,
-        "ft": 0,
-        "pct": 12
-       },
-       {
-        "ht": 1,
-        "ft": 1,
-        "pct": 11
-       },
-       {
-        "ht": 1,
-        "ft": 2,
-        "pct": 13
-       },
-       {
-        "ht": 2,
-        "ft": 0,
-        "pct": 3
-       },
-       {
-        "ht": 2,
-        "ft": 1,
-        "pct": 5
-       },
-       {
-        "ht": 2,
-        "ft": 2,
-        "pct": 25
-       }
-      ]
-     },
-     "form": {
-      "home_team": {
-       "matches": 5,
-       "last": "DDDDV",
-       "goals_for": 1.6,
-       "goals_against": 2.0
-      },
-      "away_team": {
-       "matches": 5,
-       "last": "NVNDD",
-       "goals_for": 2.0,
-       "goals_against": 2.2
-      },
-      "home_team_at_home": {
-       "matches": 5,
-       "last": "DDVVD",
-       "goals_for": 1.8,
-       "goals_against": 1.8
-      },
-      "away_team_away": {
-       "matches": 5,
-       "last": "VDDVD",
-       "goals_for": 2.0,
-       "goals_against": 2.4
-      }
-     },
-     "odds": null,
-     "lineups": "non_confirmees"
-    },
-    {
-     "id": "fd-560649",
-     "competition": "Premier League",
-     "competition_code": "PL",
-     "kickoff_utc": "2026-11-23T20:00:00Z",
-     "home": "Brentford FC",
-     "away": "Everton FC",
-     "model": {
-      "version": "poisson-dc-0.1",
-      "lambda_home": 1.541,
-      "lambda_away": 1.003,
-      "rho": -0.08,
-      "confidence": "moyenne",
-      "sample_matches": {
-       "home": 48,
-       "away": 48
-      }
-     },
-     "probs": {
-      "home": 49,
-      "draw": 27,
-      "away": 24
-     },
-     "markets": [
-      {
-       "key": "over_1_5",
-       "label": "Plus de 1,5 buts",
-       "pct": 73
-      },
-      {
-       "key": "under_1_5",
-       "label": "Moins de 1,5 buts",
-       "pct": 27
-      },
-      {
-       "key": "over_2_5",
-       "label": "Plus de 2,5 buts",
-       "pct": 47
-      },
-      {
-       "key": "under_2_5",
-       "label": "Moins de 2,5 buts",
-       "pct": 53
-      },
-      {
-       "key": "over_3_5",
-       "label": "Plus de 3,5 buts",
-       "pct": 25
-      },
-      {
-       "key": "under_3_5",
-       "label": "Moins de 3,5 buts",
-       "pct": 75
-      },
-      {
-       "key": "btts_yes",
-       "label": "Les deux équipes marquent : oui",
-       "pct": 51
-      },
-      {
-       "key": "btts_no",
-       "label": "Les deux équipes marquent : non",
-       "pct": 49
-      },
-      {
-       "key": "dc_1x",
-       "label": "Double chance 1X",
-       "pct": 76
-      },
-      {
-       "key": "dc_x2",
-       "label": "Double chance X2",
-       "pct": 51
-      },
-      {
-       "key": "dc_12",
-       "label": "Double chance 12",
-       "pct": 72
-      },
-      {
-       "key": "dnb_home",
-       "label": "Remboursé si nul : domicile",
-       "pct": 67
-      },
-      {
-       "key": "dnb_away",
-       "label": "Remboursé si nul : extérieur",
-       "pct": 33
-      }
-     ],
-     "scores": {
-      "suggestions": [
-       {
-        "score": "1-1",
-        "pct": 13
-       },
-       {
-        "score": "1-0",
-        "pct": 11
-       }
-      ],
-      "alternative": {
-       "score": "2-1",
-       "pct": 9
-      }
-     },
-     "htft": {
-      "ht": {
-       "home": 35,
-       "draw": 45,
-       "away": 20
-      },
-      "combos": [
-       {
-        "ht": 0,
-        "ft": 0,
-        "pct": 29
-       },
-       {
-        "ht": 0,
-        "ft": 1,
-        "pct": 5
-       },
-       {
-        "ht": 0,
-        "ft": 2,
-        "pct": 1
-       },
-       {
-        "ht": 1,
-        "ft": 0,
-        "pct": 18
-       },
-       {
-        "ht": 1,
-        "ft": 1,
-        "pct": 17
-       },
-       {
-        "ht": 1,
-        "ft": 2,
-        "pct": 10
-       },
-       {
-        "ht": 2,
-        "ft": 0,
-        "pct": 2
-       },
-       {
-        "ht": 2,
-        "ft": 1,
-        "pct": 5
-       },
-       {
-        "ht": 2,
-        "ft": 2,
-        "pct": 13
-       }
-      ]
-     },
-     "form": {
-      "home_team": {
-       "matches": 5,
-       "last": "DVNDN",
-       "goals_for": 1.2,
-       "goals_against": 1.4
-      },
-      "away_team": {
-       "matches": 5,
-       "last": "VVDDN",
-       "goals_for": 1.2,
-       "goals_against": 1.4
-      },
-      "home_team_at_home": {
-       "matches": 5,
-       "last": "VDVNV",
-       "goals_for": 2.0,
-       "goals_against": 0.6
-      },
-      "away_team_away": {
-       "matches": 5,
-       "last": "VDNNN",
-       "goals_for": 0.8,
-       "goals_against": 1.0
-      }
-     },
-     "odds": null,
-     "lineups": "non_confirmees"
-    },
-    {
-     "id": "fd-564757",
-     "competition": "LaLiga",
-     "competition_code": "PD",
-     "kickoff_utc": "2026-11-23T20:00:00Z",
-     "home": "Levante UD",
-     "away": "Elche CF",
-     "model": {
-      "version": "poisson-dc-0.1",
-      "lambda_home": 1.663,
-      "lambda_away": 1.239,
-      "rho": -0.06,
-      "confidence": "moyenne",
-      "sample_matches": {
-       "home": 50,
-       "away": 50
-      }
-     },
-     "probs": {
-      "home": 47,
-      "draw": 25,
-      "away": 28
-     },
-     "markets": [
-      {
-       "key": "over_1_5",
-       "label": "Plus de 1,5 buts",
-       "pct": 79
-      },
-      {
-       "key": "under_1_5",
-       "label": "Moins de 1,5 buts",
-       "pct": 21
-      },
-      {
-       "key": "over_2_5",
-       "label": "Plus de 2,5 buts",
-       "pct": 55
-      },
-      {
-       "key": "under_2_5",
-       "label": "Moins de 2,5 buts",
-       "pct": 45
-      },
-      {
-       "key": "over_3_5",
-       "label": "Plus de 3,5 buts",
-       "pct": 33
-      },
-      {
-       "key": "under_3_5",
-       "label": "Moins de 3,5 buts",
-       "pct": 67
-      },
-      {
-       "key": "btts_yes",
-       "label": "Les deux équipes marquent : oui",
-       "pct": 58
-      },
-      {
-       "key": "btts_no",
-       "label": "Les deux équipes marquent : non",
-       "pct": 42
-      },
-      {
-       "key": "dc_1x",
-       "label": "Double chance 1X",
-       "pct": 72
-      },
-      {
-       "key": "dc_x2",
-       "label": "Double chance X2",
-       "pct": 53
-      },
-      {
-       "key": "dc_12",
-       "label": "Double chance 12",
-       "pct": 74
-      },
-      {
-       "key": "dnb_home",
-       "label": "Remboursé si nul : domicile",
-       "pct": 63
-      },
-      {
-       "key": "dnb_away",
-       "label": "Remboursé si nul : extérieur",
-       "pct": 37
-      }
-     ],
-     "scores": {
-      "suggestions": [
-       {
-        "score": "1-1",
-        "pct": 12
-       },
-       {
-        "score": "2-1",
-        "pct": 9
-       }
-      ],
-      "alternative": {
-       "score": "1-0",
-       "pct": 8
-      }
-     },
-     "htft": {
-      "ht": {
-       "home": 35,
-       "draw": 41,
-       "away": 24
-      },
-      "combos": [
-       {
-        "ht": 0,
-        "ft": 0,
-        "pct": 28
-       },
-       {
-        "ht": 0,
-        "ft": 1,
-        "pct": 5
-       },
-       {
-        "ht": 0,
-        "ft": 2,
-        "pct": 2
-       },
-       {
-        "ht": 1,
-        "ft": 0,
-        "pct": 16
-       },
-       {
-        "ht": 1,
-        "ft": 1,
-        "pct": 15
-       },
-       {
-        "ht": 1,
-        "ft": 2,
-        "pct": 10
-       },
-       {
-        "ht": 2,
-        "ft": 0,
-        "pct": 3
-       },
-       {
-        "ht": 2,
-        "ft": 1,
-        "pct": 5
-       },
-       {
-        "ht": 2,
-        "ft": 2,
-        "pct": 16
-       }
-      ]
-     },
-     "form": {
-      "home_team": {
-       "matches": 5,
-       "last": "NDDVN",
-       "goals_for": 1.0,
-       "goals_against": 1.2
-      },
-      "away_team": {
-       "matches": 5,
-       "last": "DDVNN",
-       "goals_for": 0.6,
-       "goals_against": 0.6
-      },
-      "home_team_at_home": {
-       "matches": 5,
-       "last": "DVNDV",
-       "goals_for": 2.6,
-       "goals_against": 2.4
-      },
-      "away_team_away": {
-       "matches": 5,
-       "last": "VNVND",
-       "goals_for": 1.8,
-       "goals_against": 1.0
-      }
-     },
-     "odds": null,
-     "lineups": "non_confirmees"
-    },
     {
      "id": "fd-575395",
      "competition": "Ligue des champions",
@@ -588,8 +21,8 @@
      "away": "Aston Villa FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.774,
-      "lambda_away": 1.908,
+      "lambda_home": 1.775,
+      "lambda_away": 1.907,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -1155,7 +588,7 @@
      "away": "SSC Napoli",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 3.269,
+      "lambda_home": 3.268,
       "lambda_away": 1.149,
       "rho": 0.0,
       "confidence": "moyenne",
@@ -1533,8 +966,8 @@
      "away": "FC Porto",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.743,
-      "lambda_away": 1.314,
+      "lambda_home": 1.744,
+      "lambda_away": 1.315,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -1722,8 +1155,8 @@
      "away": "Real Betis Balompié",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.339,
-      "lambda_away": 1.854,
+      "lambda_home": 1.34,
+      "lambda_away": 1.853,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -1911,8 +1344,8 @@
      "away": "Racing Club de Lens",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.46,
-      "lambda_away": 1.131,
+      "lambda_home": 2.459,
+      "lambda_away": 1.132,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -2100,7 +1533,7 @@
      "away": "PAE AEK",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 4.219,
+      "lambda_home": 4.216,
       "lambda_away": 1.498,
       "rho": 0.0,
       "confidence": "faible",
@@ -2289,8 +1722,8 @@
      "away": "FC Barcelona",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.254,
-      "lambda_away": 2.876,
+      "lambda_home": 1.255,
+      "lambda_away": 2.875,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -2478,7 +1911,7 @@
      "away": "Villarreal CF",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.968,
+      "lambda_home": 1.969,
       "lambda_away": 1.656,
       "rho": 0.0,
       "confidence": "moyenne",
@@ -2577,8 +2010,8 @@
      },
      "htft": {
       "ht": {
-       "home": 35,
-       "draw": 37,
+       "home": 36,
+       "draw": 36,
        "away": 28
       },
       "combos": [
@@ -2667,7 +2100,7 @@
      "away": "VfB Stuttgart",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.78,
+      "lambda_home": 1.781,
       "lambda_away": 1.277,
       "rho": 0.0,
       "confidence": "faible",
@@ -2725,7 +2158,7 @@
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 72
+       "pct": 73
       },
       {
        "key": "dc_x2",
@@ -2856,7 +2289,7 @@
      "away": "Viking FK",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.607,
+      "lambda_home": 2.606,
       "lambda_away": 1.479,
       "rho": 0.0,
       "confidence": "faible",
@@ -3045,7 +2478,7 @@
      "away": "AS Roma",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 4.792,
+      "lambda_home": 4.789,
       "lambda_away": 1.327,
       "rho": 0.0,
       "confidence": "faible",
@@ -3423,8 +2856,8 @@
      "away": "FC Bayern München",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.201,
-      "lambda_away": 3.133,
+      "lambda_home": 1.202,
+      "lambda_away": 3.132,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -3612,8 +3045,8 @@
      "away": "Manchester United FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.872,
-      "lambda_away": 1.097,
+      "lambda_home": 1.873,
+      "lambda_away": 1.098,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -3680,7 +3113,7 @@
       {
        "key": "dc_12",
        "label": "Double chance 12",
-       "pct": 77
+       "pct": 78
       },
       {
        "key": "dnb_home",
@@ -3802,7 +3235,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 2.039,
-      "lambda_away": 1.114,
+      "lambda_away": 1.115,
       "rho": 0.0,
       "confidence": "faible",
       "sample_matches": {
@@ -3990,7 +3423,7 @@
      "away": "Willem II Tilburg",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.978,
+      "lambda_home": 2.977,
       "lambda_away": 1.163,
       "rho": -0.06,
       "confidence": "moyenne",
@@ -4368,7 +3801,7 @@
      "away": "Bologna FC 1909",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 0.87,
+      "lambda_home": 0.871,
       "lambda_away": 1.575,
       "rho": 0.0,
       "confidence": "moyenne",
@@ -4746,8 +4179,8 @@
      "away": "Chelsea FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.542,
-      "lambda_away": 1.34,
+      "lambda_home": 1.547,
+      "lambda_away": 1.327,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
@@ -4756,8 +4189,8 @@
       }
      },
      "probs": {
-      "home": 41,
-      "draw": 27,
+      "home": 42,
+      "draw": 26,
       "away": 32
      },
      "markets": [
@@ -4784,12 +4217,12 @@
       {
        "key": "over_3_5",
        "label": "Plus de 3,5 buts",
-       "pct": 33
+       "pct": 32
       },
       {
        "key": "under_3_5",
        "label": "Moins de 3,5 buts",
-       "pct": 67
+       "pct": 68
       },
       {
        "key": "btts_yes",
@@ -4809,7 +4242,7 @@
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 59
+       "pct": 58
       },
       {
        "key": "dc_12",
@@ -4819,12 +4252,12 @@
       {
        "key": "dnb_home",
        "label": "Remboursé si nul : domicile",
-       "pct": 56
+       "pct": 57
       },
       {
        "key": "dnb_away",
        "label": "Remboursé si nul : extérieur",
-       "pct": 44
+       "pct": 43
       }
      ],
      "scores": {
@@ -4839,7 +4272,7 @@
        }
       ],
       "alternative": {
-       "score": "1-2",
+       "score": "1-0",
        "pct": 8
       }
      },
@@ -4868,7 +4301,7 @@
        {
         "ht": 1,
         "ft": 0,
-        "pct": 14
+        "pct": 15
        },
        {
         "ht": 1,
@@ -4888,7 +4321,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 6
+        "pct": 5
        },
        {
         "ht": 2,
@@ -4935,19 +4368,19 @@
      "away": "Real Racing Club de Santander",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.441,
-      "lambda_away": 1.444,
+      "lambda_home": 2.397,
+      "lambda_away": 1.439,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
-       "home": 50,
+       "home": 51,
        "away": 13
       }
      },
      "probs": {
-      "home": 59,
+      "home": 58,
       "draw": 20,
-      "away": 21
+      "away": 22
      },
      "markets": [
       {
@@ -4973,12 +4406,12 @@
       {
        "key": "over_3_5",
        "label": "Plus de 3,5 buts",
-       "pct": 54
+       "pct": 53
       },
       {
        "key": "under_3_5",
        "label": "Moins de 3,5 buts",
-       "pct": 46
+       "pct": 47
       },
       {
        "key": "btts_yes",
@@ -4993,12 +4426,12 @@
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 79
+       "pct": 78
       },
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 41
+       "pct": 42
       },
       {
        "key": "dc_12",
@@ -5035,8 +4468,8 @@
      "htft": {
       "ht": {
        "home": 45,
-       "draw": 33,
-       "away": 22
+       "draw": 34,
+       "away": 21
       },
       "combos": [
        {
@@ -5089,7 +4522,7 @@
      "form": {
       "home_team": {
        "matches": 5,
-       "last": "NDDVN",
+       "last": "NNDDV",
        "goals_for": 1.0,
        "goals_against": 1.2
       },
@@ -5101,9 +4534,9 @@
       },
       "home_team_at_home": {
        "matches": 5,
-       "last": "DVNDV",
-       "goals_for": 2.6,
-       "goals_against": 2.4
+       "last": "NDVND",
+       "goals_for": 1.8,
+       "goals_against": 2.2
       },
       "away_team_away": {
        "matches": 5,
@@ -5313,8 +4746,8 @@
      "away": "Rayo Vallecano de Madrid",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.792,
-      "lambda_away": 0.922,
+      "lambda_home": 1.793,
+      "lambda_away": 0.924,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
@@ -5502,7 +4935,7 @@
      "away": "Parma Calcio 1913",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.052,
+      "lambda_home": 2.053,
       "lambda_away": 1.059,
       "rho": 0.0,
       "confidence": "moyenne",
@@ -6069,7 +5502,7 @@
      "away": "FC Schalke 04",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 0.873,
+      "lambda_home": 0.874,
       "lambda_away": 0.668,
       "rho": 0.0,
       "confidence": "moyenne",
@@ -6168,8 +5601,8 @@
      },
      "htft": {
       "ht": {
-       "home": 24,
-       "draw": 58,
+       "home": 25,
+       "draw": 57,
        "away": 18
       },
       "combos": [
@@ -6259,7 +5692,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 1.044,
-      "lambda_away": 2.903,
+      "lambda_away": 2.902,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
@@ -6343,7 +5776,7 @@
       "suggestions": [
        {
         "score": "1-2",
-        "pct": 8
+        "pct": 9
        },
        {
         "score": "1-3",
@@ -6370,7 +5803,7 @@
        {
         "ht": 0,
         "ft": 1,
-        "pct": 4
+        "pct": 3
        },
        {
         "ht": 0,
@@ -6400,7 +5833,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 3
+        "pct": 4
        },
        {
         "ht": 2,
@@ -6447,8 +5880,8 @@
      "away": "Coventry City FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.962,
-      "lambda_away": 1.035,
+      "lambda_home": 1.98,
+      "lambda_away": 1.023,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
@@ -6457,9 +5890,9 @@
       }
      },
      "probs": {
-      "home": 58,
+      "home": 59,
       "draw": 23,
-      "away": 19
+      "away": 18
      },
      "markets": [
       {
@@ -6505,12 +5938,12 @@
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 81
+       "pct": 82
       },
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 42
+       "pct": 41
       },
       {
        "key": "dc_12",
@@ -6546,15 +5979,15 @@
      },
      "htft": {
       "ht": {
-       "home": 42,
-       "draw": 40,
+       "home": 43,
+       "draw": 39,
        "away": 18
       },
       "combos": [
        {
         "ht": 0,
         "ft": 0,
-        "pct": 36
+        "pct": 37
        },
        {
         "ht": 0,
@@ -6574,7 +6007,7 @@
        {
         "ht": 1,
         "ft": 1,
-        "pct": 14
+        "pct": 13
        },
        {
         "ht": 1,
@@ -6636,19 +6069,19 @@
      "away": "Brentford FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.694,
-      "lambda_away": 1.505,
+      "lambda_home": 1.655,
+      "lambda_away": 1.582,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
        "home": 49,
-       "away": 48
+       "away": 49
       }
      },
      "probs": {
-      "home": 42,
+      "home": 39,
       "draw": 25,
-      "away": 33
+      "away": 36
      },
      "markets": [
       {
@@ -6664,42 +6097,42 @@
       {
        "key": "over_2_5",
        "label": "Plus de 2,5 buts",
-       "pct": 62
+       "pct": 63
       },
       {
        "key": "under_2_5",
        "label": "Moins de 2,5 buts",
-       "pct": 38
+       "pct": 37
       },
       {
        "key": "over_3_5",
        "label": "Plus de 3,5 buts",
-       "pct": 40
+       "pct": 41
       },
       {
        "key": "under_3_5",
        "label": "Moins de 3,5 buts",
-       "pct": 60
+       "pct": 59
       },
       {
        "key": "btts_yes",
        "label": "Les deux équipes marquent : oui",
-       "pct": 64
+       "pct": 65
       },
       {
        "key": "btts_no",
        "label": "Les deux équipes marquent : non",
-       "pct": 36
+       "pct": 35
       },
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 67
+       "pct": 64
       },
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 58
+       "pct": 61
       },
       {
        "key": "dc_12",
@@ -6709,12 +6142,12 @@
       {
        "key": "dnb_home",
        "label": "Remboursé si nul : domicile",
-       "pct": 55
+       "pct": 52
       },
       {
        "key": "dnb_away",
        "label": "Remboursé si nul : extérieur",
-       "pct": 45
+       "pct": 48
       }
      ],
      "scores": {
@@ -6735,15 +6168,15 @@
      },
      "htft": {
       "ht": {
-       "home": 33,
+       "home": 31,
        "draw": 39,
-       "away": 28
+       "away": 30
       },
       "combos": [
        {
         "ht": 0,
         "ft": 0,
-        "pct": 25
+        "pct": 23
        },
        {
         "ht": 0,
@@ -6753,12 +6186,12 @@
        {
         "ht": 0,
         "ft": 2,
-        "pct": 2
+        "pct": 3
        },
        {
         "ht": 1,
         "ft": 0,
-        "pct": 14
+        "pct": 13
        },
        {
         "ht": 1,
@@ -6783,7 +6216,7 @@
        {
         "ht": 2,
         "ft": 2,
-        "pct": 19
+        "pct": 21
        }
       ]
      },
@@ -6796,9 +6229,9 @@
       },
       "away_team": {
        "matches": 5,
-       "last": "DVNDN",
-       "goals_for": 1.2,
-       "goals_against": 1.4
+       "last": "VDVND",
+       "goals_for": 1.6,
+       "goals_against": 1.0
       },
       "home_team_at_home": {
        "matches": 5,
@@ -6826,7 +6259,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 0.967,
-      "lambda_away": 1.281,
+      "lambda_away": 1.283,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
@@ -6843,12 +6276,12 @@
       {
        "key": "over_1_5",
        "label": "Plus de 1,5 buts",
-       "pct": 66
+       "pct": 67
       },
       {
        "key": "under_1_5",
        "label": "Moins de 1,5 buts",
-       "pct": 34
+       "pct": 33
       },
       {
        "key": "over_2_5",
@@ -7582,7 +7015,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 0.899,
-      "lambda_away": 1.9,
+      "lambda_away": 1.899,
       "rho": -0.04,
       "confidence": "moyenne",
       "sample_matches": {
@@ -7770,8 +7203,8 @@
      "away": "SS Lazio",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.023,
-      "lambda_away": 1.662,
+      "lambda_home": 1.029,
+      "lambda_away": 1.659,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
@@ -7780,8 +7213,8 @@
       }
      },
      "probs": {
-      "home": 23,
-      "draw": 25,
+      "home": 24,
+      "draw": 24,
       "away": 52
      },
      "markets": [
@@ -7960,7 +7393,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 1.655,
-      "lambda_away": 1.759,
+      "lambda_away": 1.756,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
@@ -8148,12 +7581,12 @@
      "away": "Club Atlético de Madrid",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.146,
-      "lambda_away": 1.596,
+      "lambda_home": 1.138,
+      "lambda_away": 1.575,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
-       "home": 50,
+       "home": 51,
        "away": 51
       }
      },
@@ -8166,32 +7599,32 @@
       {
        "key": "over_1_5",
        "label": "Plus de 1,5 buts",
-       "pct": 77
+       "pct": 76
       },
       {
        "key": "under_1_5",
        "label": "Moins de 1,5 buts",
-       "pct": 23
+       "pct": 24
       },
       {
        "key": "over_2_5",
        "label": "Plus de 2,5 buts",
-       "pct": 52
+       "pct": 51
       },
       {
        "key": "under_2_5",
        "label": "Moins de 2,5 buts",
-       "pct": 48
+       "pct": 49
       },
       {
        "key": "over_3_5",
        "label": "Plus de 3,5 buts",
-       "pct": 30
+       "pct": 29
       },
       {
        "key": "under_3_5",
        "label": "Moins de 3,5 buts",
-       "pct": 70
+       "pct": 71
       },
       {
        "key": "btts_yes",
@@ -8233,7 +7666,7 @@
       "suggestions": [
        {
         "score": "1-1",
-        "pct": 12
+        "pct": 13
        },
        {
         "score": "0-1",
@@ -8302,9 +7735,9 @@
      "form": {
       "home_team": {
        "matches": 5,
-       "last": "DDVNN",
-       "goals_for": 0.6,
-       "goals_against": 0.6
+       "last": "NDDVN",
+       "goals_for": 0.8,
+       "goals_against": 0.8
       },
       "away_team": {
        "matches": 5,
@@ -8449,7 +7882,7 @@
        {
         "ht": 0,
         "ft": 1,
-        "pct": 4
+        "pct": 5
        },
        {
         "ht": 0,
@@ -8479,7 +7912,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 5
+        "pct": 4
        },
        {
         "ht": 2,
@@ -8526,7 +7959,7 @@
      "away": "Go Ahead Eagles",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 3.221,
+      "lambda_home": 3.22,
       "lambda_away": 1.25,
       "rho": -0.06,
       "confidence": "moyenne",
@@ -8904,8 +8337,8 @@
      "away": "Genoa CFC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.349,
-      "lambda_away": 0.969,
+      "lambda_home": 2.37,
+      "lambda_away": 0.962,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
@@ -8922,32 +8355,32 @@
       {
        "key": "over_1_5",
        "label": "Plus de 1,5 buts",
-       "pct": 84
+       "pct": 85
       },
       {
        "key": "under_1_5",
        "label": "Moins de 1,5 buts",
-       "pct": 16
+       "pct": 15
       },
       {
        "key": "over_2_5",
        "label": "Plus de 2,5 buts",
-       "pct": 64
+       "pct": 65
       },
       {
        "key": "under_2_5",
        "label": "Moins de 2,5 buts",
-       "pct": 36
+       "pct": 35
       },
       {
        "key": "over_3_5",
        "label": "Plus de 3,5 buts",
-       "pct": 42
+       "pct": 43
       },
       {
        "key": "under_3_5",
        "label": "Moins de 3,5 buts",
-       "pct": 58
+       "pct": 57
       },
       {
        "key": "btts_yes",
@@ -8967,7 +8400,7 @@
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 32
+       "pct": 31
       },
       {
        "key": "dc_12",
@@ -8998,7 +8431,7 @@
       ],
       "alternative": {
        "score": "1-0",
-       "pct": 9
+       "pct": 8
       }
      },
      "htft": {
@@ -9200,7 +8633,7 @@
        {
         "ht": 0,
         "ft": 0,
-        "pct": 15
+        "pct": 16
        },
        {
         "ht": 0,
@@ -9240,7 +8673,7 @@
        {
         "ht": 2,
         "ft": 2,
-        "pct": 26
+        "pct": 25
        }
       ]
      },
@@ -9661,7 +9094,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 1.985,
-      "lambda_away": 0.77,
+      "lambda_away": 0.771,
       "rho": -0.04,
       "confidence": "moyenne",
       "sample_matches": {
@@ -9849,8 +9282,8 @@
      "away": "Deportivo Alavés",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.552,
-      "lambda_away": 0.748,
+      "lambda_home": 2.551,
+      "lambda_away": 0.749,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
@@ -9948,8 +9381,8 @@
      },
      "htft": {
       "ht": {
-       "home": 56,
-       "draw": 33,
+       "home": 55,
+       "draw": 34,
        "away": 11
       },
       "combos": [
@@ -10605,70 +10038,70 @@
      "away": "ACF Fiorentina",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.418,
-      "lambda_away": 1.439,
+      "lambda_home": 1.458,
+      "lambda_away": 1.358,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
        "home": 50,
-       "away": 49
+       "away": 50
       }
      },
      "probs": {
-      "home": 37,
+      "home": 40,
       "draw": 25,
-      "away": 38
+      "away": 35
      },
      "markets": [
       {
        "key": "over_1_5",
        "label": "Plus de 1,5 buts",
-       "pct": 78
+       "pct": 77
       },
       {
        "key": "under_1_5",
        "label": "Moins de 1,5 buts",
-       "pct": 22
+       "pct": 23
       },
       {
        "key": "over_2_5",
        "label": "Plus de 2,5 buts",
-       "pct": 54
+       "pct": 53
       },
       {
        "key": "under_2_5",
        "label": "Moins de 2,5 buts",
-       "pct": 46
+       "pct": 47
       },
       {
        "key": "over_3_5",
        "label": "Plus de 3,5 buts",
-       "pct": 32
+       "pct": 31
       },
       {
        "key": "under_3_5",
        "label": "Moins de 3,5 buts",
-       "pct": 68
+       "pct": 69
       },
       {
        "key": "btts_yes",
        "label": "Les deux équipes marquent : oui",
-       "pct": 58
+       "pct": 57
       },
       {
        "key": "btts_no",
        "label": "Les deux équipes marquent : non",
-       "pct": 42
+       "pct": 43
       },
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 62
+       "pct": 65
       },
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 63
+       "pct": 60
       },
       {
        "key": "dc_12",
@@ -10678,12 +10111,12 @@
       {
        "key": "dnb_home",
        "label": "Remboursé si nul : domicile",
-       "pct": 49
+       "pct": 53
       },
       {
        "key": "dnb_away",
        "label": "Remboursé si nul : extérieur",
-       "pct": 51
+       "pct": 47
       }
      ],
      "scores": {
@@ -10693,26 +10126,26 @@
         "pct": 12
        },
        {
-        "score": "1-2",
-        "pct": 8
+        "score": "1-0",
+        "pct": 9
        }
       ],
       "alternative": {
        "score": "2-1",
-       "pct": 8
+       "pct": 9
       }
      },
      "htft": {
       "ht": {
-       "home": 29,
+       "home": 31,
        "draw": 41,
-       "away": 30
+       "away": 28
       },
       "combos": [
        {
         "ht": 0,
         "ft": 0,
-        "pct": 21
+        "pct": 23
        },
        {
         "ht": 0,
@@ -10722,12 +10155,12 @@
        {
         "ht": 0,
         "ft": 2,
-        "pct": 3
+        "pct": 2
        },
        {
         "ht": 1,
         "ft": 0,
-        "pct": 13
+        "pct": 14
        },
        {
         "ht": 1,
@@ -10737,12 +10170,12 @@
        {
         "ht": 1,
         "ft": 2,
-        "pct": 14
+        "pct": 13
        },
        {
         "ht": 2,
         "ft": 0,
-        "pct": 2
+        "pct": 3
        },
        {
         "ht": 2,
@@ -10752,7 +10185,7 @@
        {
         "ht": 2,
         "ft": 2,
-        "pct": 22
+        "pct": 20
        }
       ]
      },
@@ -10765,8 +10198,8 @@
       },
       "away_team": {
        "matches": 5,
-       "last": "NVNDD",
-       "goals_for": 2.0,
+       "last": "DNVND",
+       "goals_for": 1.8,
        "goals_against": 2.2
       },
       "home_team_at_home": {
@@ -10777,9 +10210,9 @@
       },
       "away_team_away": {
        "matches": 5,
-       "last": "VDDVD",
+       "last": "DVDDV",
        "goals_for": 2.0,
-       "goals_against": 2.4
+       "goals_against": 2.2
       }
      },
      "odds": null,
@@ -10794,85 +10227,85 @@
      "away": "Liverpool FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.217,
-      "lambda_away": 1.313,
+      "lambda_home": 1.187,
+      "lambda_away": 1.389,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
-       "home": 48,
+       "home": 49,
        "away": 49
       }
      },
      "probs": {
-      "home": 33,
-      "draw": 29,
-      "away": 38
+      "home": 31,
+      "draw": 28,
+      "away": 41
      },
      "markets": [
       {
        "key": "over_1_5",
        "label": "Plus de 1,5 buts",
-       "pct": 73
+       "pct": 74
       },
       {
        "key": "under_1_5",
        "label": "Moins de 1,5 buts",
-       "pct": 27
+       "pct": 26
       },
       {
        "key": "over_2_5",
        "label": "Plus de 2,5 buts",
-       "pct": 46
+       "pct": 48
       },
       {
        "key": "under_2_5",
        "label": "Moins de 2,5 buts",
-       "pct": 54
+       "pct": 52
       },
       {
        "key": "over_3_5",
        "label": "Plus de 3,5 buts",
-       "pct": 25
+       "pct": 26
       },
       {
        "key": "under_3_5",
        "label": "Moins de 3,5 buts",
-       "pct": 75
+       "pct": 74
       },
       {
        "key": "btts_yes",
        "label": "Les deux équipes marquent : oui",
-       "pct": 52
+       "pct": 53
       },
       {
        "key": "btts_no",
        "label": "Les deux équipes marquent : non",
-       "pct": 48
+       "pct": 47
       },
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 62
+       "pct": 59
       },
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 67
+       "pct": 69
       },
       {
        "key": "dc_12",
        "label": "Double chance 12",
-       "pct": 71
+       "pct": 72
       },
       {
        "key": "dnb_home",
        "label": "Remboursé si nul : domicile",
-       "pct": 47
+       "pct": 43
       },
       {
        "key": "dnb_away",
        "label": "Remboursé si nul : extérieur",
-       "pct": 53
+       "pct": 57
       }
      ],
      "scores": {
@@ -10883,30 +10316,30 @@
        },
        {
         "score": "0-1",
-        "pct": 9
+        "pct": 10
        }
       ],
       "alternative": {
-       "score": "0-0",
+       "score": "1-2",
        "pct": 9
       }
      },
      "htft": {
       "ht": {
-       "home": 26,
-       "draw": 45,
-       "away": 29
+       "home": 25,
+       "draw": 44,
+       "away": 31
       },
       "combos": [
        {
         "ht": 0,
         "ft": 0,
-        "pct": 19
+        "pct": 17
        },
        {
         "ht": 0,
         "ft": 1,
-        "pct": 5
+        "pct": 6
        },
        {
         "ht": 0,
@@ -10916,7 +10349,7 @@
        {
         "ht": 1,
         "ft": 0,
-        "pct": 13
+        "pct": 12
        },
        {
         "ht": 1,
@@ -10926,7 +10359,7 @@
        {
         "ht": 1,
         "ft": 2,
-        "pct": 14
+        "pct": 15
        },
        {
         "ht": 2,
@@ -10941,16 +10374,16 @@
        {
         "ht": 2,
         "ft": 2,
-        "pct": 22
+        "pct": 23
        }
       ]
      },
      "form": {
       "home_team": {
        "matches": 5,
-       "last": "VVDDN",
-       "goals_for": 1.2,
-       "goals_against": 1.4
+       "last": "DVVDD",
+       "goals_for": 0.8,
+       "goals_against": 1.8
       },
       "away_team": {
        "matches": 5,
@@ -10983,8 +10416,8 @@
      "away": "CA Osasuna",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.417,
-      "lambda_away": 0.958,
+      "lambda_home": 1.418,
+      "lambda_away": 0.959,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
@@ -11090,7 +10523,7 @@
        {
         "ht": 0,
         "ft": 0,
-        "pct": 28
+        "pct": 27
        },
        {
         "ht": 0,
@@ -11100,7 +10533,7 @@
        {
         "ht": 0,
         "ft": 2,
-        "pct": 1
+        "pct": 2
        },
        {
         "ht": 1,
@@ -11361,7 +10794,7 @@
      "away": "AFC Ajax",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.727,
+      "lambda_home": 1.728,
       "lambda_away": 1.749,
       "rho": -0.06,
       "confidence": "moyenne",
@@ -11550,8 +10983,8 @@
      "away": "SSC Napoli",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.053,
-      "lambda_away": 1.827,
+      "lambda_home": 1.059,
+      "lambda_away": 1.823,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
@@ -11928,8 +11361,8 @@
      "away": "AFC Bournemouth",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.187,
-      "lambda_away": 1.212,
+      "lambda_home": 1.19,
+      "lambda_away": 1.204,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
@@ -11938,9 +11371,9 @@
       }
      },
      "probs": {
-      "home": 34,
+      "home": 35,
       "draw": 30,
-      "away": 36
+      "away": 35
      },
      "markets": [
       {
@@ -11986,7 +11419,7 @@
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 64
+       "pct": 65
       },
       {
        "key": "dc_x2",
@@ -12001,12 +11434,12 @@
       {
        "key": "dnb_home",
        "label": "Remboursé si nul : domicile",
-       "pct": 49
+       "pct": 50
       },
       {
        "key": "dnb_away",
        "label": "Remboursé si nul : extérieur",
-       "pct": 51
+       "pct": 50
       }
      ],
      "scores": {
@@ -12027,8 +11460,8 @@
      },
      "htft": {
       "ht": {
-       "home": 26,
-       "draw": 47,
+       "home": 27,
+       "draw": 46,
        "away": 27
       },
       "combos": [
@@ -12117,8 +11550,8 @@
      "away": "Newcastle United FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.137,
-      "lambda_away": 0.982,
+      "lambda_home": 2.15,
+      "lambda_away": 0.972,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
@@ -12127,9 +11560,9 @@
       }
      },
      "probs": {
-      "home": 63,
+      "home": 64,
       "draw": 21,
-      "away": 16
+      "away": 15
      },
      "markets": [
       {
@@ -12175,12 +11608,12 @@
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 84
+       "pct": 85
       },
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 37
+       "pct": 36
       },
       {
        "key": "dc_12",
@@ -12190,12 +11623,12 @@
       {
        "key": "dnb_home",
        "label": "Remboursé si nul : domicile",
-       "pct": 80
+       "pct": 81
       },
       {
        "key": "dnb_away",
        "label": "Remboursé si nul : extérieur",
-       "pct": 20
+       "pct": 19
       }
      ],
      "scores": {
@@ -12224,7 +11657,7 @@
        {
         "ht": 0,
         "ft": 0,
-        "pct": 40
+        "pct": 41
        },
        {
         "ht": 0,
@@ -12259,7 +11692,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 5
+        "pct": 4
        },
        {
         "ht": 2,
@@ -12306,8 +11739,8 @@
      "away": "Tottenham Hotspur FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.107,
-      "lambda_away": 0.98,
+      "lambda_home": 1.11,
+      "lambda_away": 0.97,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
@@ -12316,9 +11749,9 @@
       }
      },
      "probs": {
-      "home": 37,
+      "home": 38,
       "draw": 32,
-      "away": 31
+      "away": 30
      },
      "markets": [
       {
@@ -12364,12 +11797,12 @@
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 69
+       "pct": 70
       },
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 63
+       "pct": 62
       },
       {
        "key": "dc_12",
@@ -12395,7 +11828,7 @@
        },
        {
         "score": "0-0",
-        "pct": 13
+        "pct": 14
        }
       ],
       "alternative": {
@@ -12413,7 +11846,7 @@
        {
         "ht": 0,
         "ft": 0,
-        "pct": 20
+        "pct": 21
        },
        {
         "ht": 0,
@@ -12453,7 +11886,7 @@
        {
         "ht": 2,
         "ft": 2,
-        "pct": 17
+        "pct": 16
        }
       ]
      },
@@ -12495,8 +11928,8 @@
      "away": "Hull City AFC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 0.998,
-      "lambda_away": 1.347,
+      "lambda_home": 1.0,
+      "lambda_away": 1.336,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
@@ -12506,8 +11939,8 @@
      },
      "probs": {
       "home": 27,
-      "draw": 29,
-      "away": 44
+      "draw": 30,
+      "away": 43
      },
      "markets": [
       {
@@ -12523,12 +11956,12 @@
       {
        "key": "over_2_5",
        "label": "Plus de 2,5 buts",
-       "pct": 42
+       "pct": 41
       },
       {
        "key": "under_2_5",
        "label": "Moins de 2,5 buts",
-       "pct": 58
+       "pct": 59
       },
       {
        "key": "over_3_5",
@@ -12553,7 +11986,7 @@
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 56
+       "pct": 57
       },
       {
        "key": "dc_x2",
@@ -12602,7 +12035,7 @@
        {
         "ht": 0,
         "ft": 0,
-        "pct": 14
+        "pct": 15
        },
        {
         "ht": 0,
@@ -12622,17 +12055,17 @@
        {
         "ht": 1,
         "ft": 1,
-        "pct": 19
+        "pct": 20
        },
        {
         "ht": 1,
         "ft": 2,
-        "pct": 17
+        "pct": 16
        },
        {
         "ht": 2,
         "ft": 0,
-        "pct": 2
+        "pct": 1
        },
        {
         "ht": 2,
@@ -12873,8 +12306,8 @@
      "away": "FC Barcelona",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.129,
-      "lambda_away": 2.435,
+      "lambda_home": 1.131,
+      "lambda_away": 2.439,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
@@ -12985,7 +12418,7 @@
        {
         "ht": 0,
         "ft": 1,
-        "pct": 5
+        "pct": 4
        },
        {
         "ht": 0,
@@ -13015,7 +12448,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 4
+        "pct": 5
        },
        {
         "ht": 2,
@@ -13440,8 +12873,8 @@
      "away": "Manchester City FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.541,
-      "lambda_away": 0.938,
+      "lambda_home": 1.543,
+      "lambda_away": 0.933,
       "rho": -0.08,
       "confidence": "moyenne",
       "sample_matches": {
@@ -13503,7 +12936,7 @@
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 50
+       "pct": 49
       },
       {
        "key": "dc_12",
@@ -13629,7 +13062,7 @@
      "away": "FC Augsburg",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.259,
+      "lambda_home": 2.258,
       "lambda_away": 1.522,
       "rho": 0.0,
       "confidence": "moyenne",
@@ -13818,85 +13251,85 @@
      "away": "AC Monza",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 3.279,
-      "lambda_away": 1.041,
+      "lambda_home": 3.078,
+      "lambda_away": 1.093,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
        "home": 50,
-       "away": 11
+       "away": 12
       }
      },
      "probs": {
-      "home": 80,
-      "draw": 12,
-      "away": 8
+      "home": 77,
+      "draw": 13,
+      "away": 10
      },
      "markets": [
       {
        "key": "over_1_5",
        "label": "Plus de 1,5 buts",
-       "pct": 93
+       "pct": 92
       },
       {
        "key": "under_1_5",
        "label": "Moins de 1,5 buts",
-       "pct": 7
+       "pct": 8
       },
       {
        "key": "over_2_5",
        "label": "Plus de 2,5 buts",
-       "pct": 81
+       "pct": 79
       },
       {
        "key": "under_2_5",
        "label": "Moins de 2,5 buts",
-       "pct": 19
+       "pct": 21
       },
       {
        "key": "over_3_5",
        "label": "Plus de 3,5 buts",
-       "pct": 63
+       "pct": 60
       },
       {
        "key": "under_3_5",
        "label": "Moins de 3,5 buts",
-       "pct": 37
+       "pct": 40
       },
       {
        "key": "btts_yes",
        "label": "Les deux équipes marquent : oui",
-       "pct": 62
+       "pct": 63
       },
       {
        "key": "btts_no",
        "label": "Les deux équipes marquent : non",
-       "pct": 38
+       "pct": 37
       },
       {
        "key": "dc_1x",
        "label": "Double chance 1X",
-       "pct": 92
+       "pct": 90
       },
       {
        "key": "dc_x2",
        "label": "Double chance X2",
-       "pct": 20
+       "pct": 23
       },
       {
        "key": "dc_12",
        "label": "Double chance 12",
-       "pct": 88
+       "pct": 87
       },
       {
        "key": "dnb_home",
        "label": "Remboursé si nul : domicile",
-       "pct": 91
+       "pct": 88
       },
       {
        "key": "dnb_away",
        "label": "Remboursé si nul : extérieur",
-       "pct": 9
+       "pct": 12
       }
      ],
      "scores": {
@@ -13906,26 +13339,26 @@
         "pct": 8
        },
        {
-        "score": "3-0",
+        "score": "2-1",
         "pct": 8
        }
       ],
       "alternative": {
-       "score": "2-1",
-       "pct": 7
+       "score": "3-0",
+       "pct": 8
       }
      },
      "htft": {
       "ht": {
-       "home": 61,
-       "draw": 27,
-       "away": 12
+       "home": 58,
+       "draw": 29,
+       "away": 13
       },
       "combos": [
        {
         "ht": 0,
         "ft": 0,
-        "pct": 58
+        "pct": 54
        },
        {
         "ht": 0,
@@ -13945,12 +13378,12 @@
        {
         "ht": 1,
         "ft": 1,
-        "pct": 6
+        "pct": 7
        },
        {
         "ht": 1,
         "ft": 2,
-        "pct": 3
+        "pct": 4
        },
        {
         "ht": 2,
@@ -13965,7 +13398,7 @@
        {
         "ht": 2,
         "ft": 2,
-        "pct": 4
+        "pct": 6
        }
       ]
      },
@@ -13978,8 +13411,8 @@
       },
       "away_team": {
        "matches": 5,
-       "last": "DDDDV",
-       "goals_for": 1.6,
+       "last": "VDDDD",
+       "goals_for": 1.4,
        "goals_against": 2.0
       },
       "home_team_at_home": {
@@ -14007,8 +13440,8 @@
      "away": "Villarreal CF",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.243,
-      "lambda_away": 1.225,
+      "lambda_home": 1.244,
+      "lambda_away": 1.228,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
@@ -14497,7 +13930,7 @@
        {
         "ht": 0,
         "ft": 1,
-        "pct": 5
+        "pct": 4
        },
        {
         "ht": 0,
@@ -14527,7 +13960,7 @@
        {
         "ht": 2,
         "ft": 1,
-        "pct": 4
+        "pct": 5
        },
        {
         "ht": 2,
@@ -14763,8 +14196,8 @@
      "away": "Juventus FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 1.312,
-      "lambda_away": 0.945,
+      "lambda_home": 1.319,
+      "lambda_away": 0.94,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
@@ -15141,8 +14574,8 @@
      "away": "Sevilla FC",
      "model": {
       "version": "poisson-dc-0.1",
-      "lambda_home": 2.103,
-      "lambda_away": 1.369,
+      "lambda_home": 2.105,
+      "lambda_away": 1.371,
       "rho": -0.06,
       "confidence": "moyenne",
       "sample_matches": {
@@ -15331,7 +14764,7 @@
      "model": {
       "version": "poisson-dc-0.1",
       "lambda_home": 1.517,
-      "lambda_away": 1.075,
+      "lambda_away": 1.076,
       "rho": 0.0,
       "confidence": "moyenne",
       "sample_matches": {
@@ -15505,6 +14938,951 @@
        "last": "VVNVN",
        "goals_for": 2.4,
        "goals_against": 0.8
+      }
+     },
+     "odds": null,
+     "lineups": "non_confirmees"
+    },
+    {
+     "id": "fd-558516",
+     "competition": "Serie A",
+     "competition_code": "SA",
+     "kickoff_utc": "2026-11-30T17:30:00Z",
+     "home": "US Lecce",
+     "away": "Atalanta BC",
+     "model": {
+      "version": "poisson-dc-0.1",
+      "lambda_home": 0.98,
+      "lambda_away": 1.61,
+      "rho": 0.0,
+      "confidence": "moyenne",
+      "sample_matches": {
+       "home": 50,
+       "away": 50
+      }
+     },
+     "probs": {
+      "home": 23,
+      "draw": 25,
+      "away": 52
+     },
+     "markets": [
+      {
+       "key": "over_1_5",
+       "label": "Plus de 1,5 buts",
+       "pct": 73
+      },
+      {
+       "key": "under_1_5",
+       "label": "Moins de 1,5 buts",
+       "pct": 27
+      },
+      {
+       "key": "over_2_5",
+       "label": "Plus de 2,5 buts",
+       "pct": 48
+      },
+      {
+       "key": "under_2_5",
+       "label": "Moins de 2,5 buts",
+       "pct": 52
+      },
+      {
+       "key": "over_3_5",
+       "label": "Plus de 3,5 buts",
+       "pct": 26
+      },
+      {
+       "key": "under_3_5",
+       "label": "Moins de 3,5 buts",
+       "pct": 74
+      },
+      {
+       "key": "btts_yes",
+       "label": "Les deux équipes marquent : oui",
+       "pct": 50
+      },
+      {
+       "key": "btts_no",
+       "label": "Les deux équipes marquent : non",
+       "pct": 50
+      },
+      {
+       "key": "dc_1x",
+       "label": "Double chance 1X",
+       "pct": 48
+      },
+      {
+       "key": "dc_x2",
+       "label": "Double chance X2",
+       "pct": 77
+      },
+      {
+       "key": "dc_12",
+       "label": "Double chance 12",
+       "pct": 75
+      },
+      {
+       "key": "dnb_home",
+       "label": "Remboursé si nul : domicile",
+       "pct": 31
+      },
+      {
+       "key": "dnb_away",
+       "label": "Remboursé si nul : extérieur",
+       "pct": 69
+      }
+     ],
+     "scores": {
+      "suggestions": [
+       {
+        "score": "0-1",
+        "pct": 12
+       },
+       {
+        "score": "1-1",
+        "pct": 12
+       }
+      ],
+      "alternative": {
+       "score": "0-2",
+       "pct": 10
+      }
+     },
+     "htft": {
+      "ht": {
+       "home": 20,
+       "draw": 43,
+       "away": 37
+      },
+      "combos": [
+       {
+        "ht": 0,
+        "ft": 0,
+        "pct": 12
+       },
+       {
+        "ht": 0,
+        "ft": 1,
+        "pct": 5
+       },
+       {
+        "ht": 0,
+        "ft": 2,
+        "pct": 3
+       },
+       {
+        "ht": 1,
+        "ft": 0,
+        "pct": 9
+       },
+       {
+        "ht": 1,
+        "ft": 1,
+        "pct": 16
+       },
+       {
+        "ht": 1,
+        "ft": 2,
+        "pct": 18
+       },
+       {
+        "ht": 2,
+        "ft": 0,
+        "pct": 1
+       },
+       {
+        "ht": 2,
+        "ft": 1,
+        "pct": 5
+       },
+       {
+        "ht": 2,
+        "ft": 2,
+        "pct": 31
+       }
+      ]
+     },
+     "form": {
+      "home_team": {
+       "matches": 5,
+       "last": "DNDDD",
+       "goals_for": 0.6,
+       "goals_against": 2.6
+      },
+      "away_team": {
+       "matches": 5,
+       "last": "NVDNN",
+       "goals_for": 2.2,
+       "goals_against": 2.6
+      },
+      "home_team_at_home": {
+       "matches": 5,
+       "last": "DDDVD",
+       "goals_for": 1.0,
+       "goals_against": 2.4
+      },
+      "away_team_away": {
+       "matches": 5,
+       "last": "VNDDD",
+       "goals_for": 1.2,
+       "goals_against": 1.8
+      }
+     },
+     "odds": null,
+     "lineups": "non_confirmees"
+    },
+    {
+     "id": "fd-558510",
+     "competition": "Serie A",
+     "competition_code": "SA",
+     "kickoff_utc": "2026-11-30T19:45:00Z",
+     "home": "Cagliari Calcio",
+     "away": "AC Milan",
+     "model": {
+      "version": "poisson-dc-0.1",
+      "lambda_home": 0.892,
+      "lambda_away": 1.573,
+      "rho": 0.0,
+      "confidence": "moyenne",
+      "sample_matches": {
+       "home": 50,
+       "away": 50
+      }
+     },
+     "probs": {
+      "home": 21,
+      "draw": 25,
+      "away": 54
+     },
+     "markets": [
+      {
+       "key": "over_1_5",
+       "label": "Plus de 1,5 buts",
+       "pct": 71
+      },
+      {
+       "key": "under_1_5",
+       "label": "Moins de 1,5 buts",
+       "pct": 29
+      },
+      {
+       "key": "over_2_5",
+       "label": "Plus de 2,5 buts",
+       "pct": 45
+      },
+      {
+       "key": "under_2_5",
+       "label": "Moins de 2,5 buts",
+       "pct": 55
+      },
+      {
+       "key": "over_3_5",
+       "label": "Plus de 3,5 buts",
+       "pct": 23
+      },
+      {
+       "key": "under_3_5",
+       "label": "Moins de 3,5 buts",
+       "pct": 77
+      },
+      {
+       "key": "btts_yes",
+       "label": "Les deux équipes marquent : oui",
+       "pct": 47
+      },
+      {
+       "key": "btts_no",
+       "label": "Les deux équipes marquent : non",
+       "pct": 53
+      },
+      {
+       "key": "dc_1x",
+       "label": "Double chance 1X",
+       "pct": 47
+      },
+      {
+       "key": "dc_x2",
+       "label": "Double chance X2",
+       "pct": 79
+      },
+      {
+       "key": "dc_12",
+       "label": "Double chance 12",
+       "pct": 75
+      },
+      {
+       "key": "dnb_home",
+       "label": "Remboursé si nul : domicile",
+       "pct": 29
+      },
+      {
+       "key": "dnb_away",
+       "label": "Remboursé si nul : extérieur",
+       "pct": 71
+      }
+     ],
+     "scores": {
+      "suggestions": [
+       {
+        "score": "0-1",
+        "pct": 13
+       },
+       {
+        "score": "1-1",
+        "pct": 12
+       }
+      ],
+      "alternative": {
+       "score": "0-2",
+       "pct": 11
+      }
+     },
+     "htft": {
+      "ht": {
+       "home": 18,
+       "draw": 44,
+       "away": 38
+      },
+      "combos": [
+       {
+        "ht": 0,
+        "ft": 0,
+        "pct": 11
+       },
+       {
+        "ht": 0,
+        "ft": 1,
+        "pct": 5
+       },
+       {
+        "ht": 0,
+        "ft": 2,
+        "pct": 2
+       },
+       {
+        "ht": 1,
+        "ft": 0,
+        "pct": 9
+       },
+       {
+        "ht": 1,
+        "ft": 1,
+        "pct": 16
+       },
+       {
+        "ht": 1,
+        "ft": 2,
+        "pct": 19
+       },
+       {
+        "ht": 2,
+        "ft": 0,
+        "pct": 1
+       },
+       {
+        "ht": 2,
+        "ft": 1,
+        "pct": 5
+       },
+       {
+        "ht": 2,
+        "ft": 2,
+        "pct": 32
+       }
+      ]
+     },
+     "form": {
+      "home_team": {
+       "matches": 5,
+       "last": "DVDDD",
+       "goals_for": 0.8,
+       "goals_against": 2.0
+      },
+      "away_team": {
+       "matches": 5,
+       "last": "VVVDV",
+       "goals_for": 2.8,
+       "goals_against": 1.4
+      },
+      "home_team_at_home": {
+       "matches": 5,
+       "last": "VDNVD",
+       "goals_for": 0.6,
+       "goals_against": 0.8
+      },
+      "away_team_away": {
+       "matches": 5,
+       "last": "VVNNN",
+       "goals_for": 1.6,
+       "goals_against": 1.0
+      }
+     },
+     "odds": null,
+     "lineups": "non_confirmees"
+    },
+    {
+     "id": "fd-564763",
+     "competition": "LaLiga",
+     "competition_code": "PD",
+     "kickoff_utc": "2026-11-30T20:00:00Z",
+     "home": "RCD Espanyol de Barcelona",
+     "away": "Getafe CF",
+     "model": {
+      "version": "poisson-dc-0.1",
+      "lambda_home": 1.124,
+      "lambda_away": 0.647,
+      "rho": -0.06,
+      "confidence": "moyenne",
+      "sample_matches": {
+       "home": 51,
+       "away": 51
+      }
+     },
+     "probs": {
+      "home": 46,
+      "draw": 33,
+      "away": 21
+     },
+     "markets": [
+      {
+       "key": "over_1_5",
+       "label": "Plus de 1,5 buts",
+       "pct": 54
+      },
+      {
+       "key": "under_1_5",
+       "label": "Moins de 1,5 buts",
+       "pct": 46
+      },
+      {
+       "key": "over_2_5",
+       "label": "Plus de 2,5 buts",
+       "pct": 26
+      },
+      {
+       "key": "under_2_5",
+       "label": "Moins de 2,5 buts",
+       "pct": 74
+      },
+      {
+       "key": "over_3_5",
+       "label": "Plus de 3,5 buts",
+       "pct": 10
+      },
+      {
+       "key": "under_3_5",
+       "label": "Moins de 3,5 buts",
+       "pct": 90
+      },
+      {
+       "key": "btts_yes",
+       "label": "Les deux équipes marquent : oui",
+       "pct": 33
+      },
+      {
+       "key": "btts_no",
+       "label": "Les deux équipes marquent : non",
+       "pct": 67
+      },
+      {
+       "key": "dc_1x",
+       "label": "Double chance 1X",
+       "pct": 80
+      },
+      {
+       "key": "dc_x2",
+       "label": "Double chance X2",
+       "pct": 54
+      },
+      {
+       "key": "dc_12",
+       "label": "Double chance 12",
+       "pct": 67
+      },
+      {
+       "key": "dnb_home",
+       "label": "Remboursé si nul : domicile",
+       "pct": 69
+      },
+      {
+       "key": "dnb_away",
+       "label": "Remboursé si nul : extérieur",
+       "pct": 31
+      }
+     ],
+     "scores": {
+      "suggestions": [
+       {
+        "score": "1-0",
+        "pct": 18
+       },
+       {
+        "score": "0-0",
+        "pct": 18
+       }
+      ],
+      "alternative": {
+       "score": "1-1",
+       "pct": 13
+      }
+     },
+     "htft": {
+      "ht": {
+       "home": 31,
+       "draw": 53,
+       "away": 16
+      },
+      "combos": [
+       {
+        "ht": 0,
+        "ft": 0,
+        "pct": 26
+       },
+       {
+        "ht": 0,
+        "ft": 1,
+        "pct": 4
+       },
+       {
+        "ht": 0,
+        "ft": 2,
+        "pct": 1
+       },
+       {
+        "ht": 1,
+        "ft": 0,
+        "pct": 19
+       },
+       {
+        "ht": 1,
+        "ft": 1,
+        "pct": 25
+       },
+       {
+        "ht": 1,
+        "ft": 2,
+        "pct": 9
+       },
+       {
+        "ht": 2,
+        "ft": 0,
+        "pct": 2
+       },
+       {
+        "ht": 2,
+        "ft": 1,
+        "pct": 4
+       },
+       {
+        "ht": 2,
+        "ft": 2,
+        "pct": 10
+       }
+      ]
+     },
+     "form": {
+      "home_team": {
+       "matches": 5,
+       "last": "VNVDD",
+       "goals_for": 0.6,
+       "goals_against": 0.6
+      },
+      "away_team": {
+       "matches": 5,
+       "last": "DDVDN",
+       "goals_for": 0.8,
+       "goals_against": 2.2
+      },
+      "home_team_at_home": {
+       "matches": 5,
+       "last": "NDDND",
+       "goals_for": 0.6,
+       "goals_against": 1.4
+      },
+      "away_team_away": {
+       "matches": 5,
+       "last": "DDDDD",
+       "goals_for": 0.0,
+       "goals_against": 2.2
+      }
+     },
+     "odds": null,
+     "lineups": "non_confirmees"
+    },
+    {
+     "id": "fd-567359",
+     "competition": "Liga Portugal",
+     "competition_code": "PPL",
+     "kickoff_utc": "2026-11-30T20:15:00Z",
+     "home": "Casa Pia AC",
+     "away": "Sporting Clube de Braga",
+     "model": {
+      "version": "poisson-dc-0.1",
+      "lambda_home": 0.768,
+      "lambda_away": 1.685,
+      "rho": 0.0,
+      "confidence": "moyenne",
+      "sample_matches": {
+       "home": 45,
+       "away": 45
+      }
+     },
+     "probs": {
+      "home": 17,
+      "draw": 24,
+      "away": 59
+     },
+     "markets": [
+      {
+       "key": "over_1_5",
+       "label": "Plus de 1,5 buts",
+       "pct": 70
+      },
+      {
+       "key": "under_1_5",
+       "label": "Moins de 1,5 buts",
+       "pct": 30
+      },
+      {
+       "key": "over_2_5",
+       "label": "Plus de 2,5 buts",
+       "pct": 44
+      },
+      {
+       "key": "under_2_5",
+       "label": "Moins de 2,5 buts",
+       "pct": 56
+      },
+      {
+       "key": "over_3_5",
+       "label": "Plus de 3,5 buts",
+       "pct": 23
+      },
+      {
+       "key": "under_3_5",
+       "label": "Moins de 3,5 buts",
+       "pct": 77
+      },
+      {
+       "key": "btts_yes",
+       "label": "Les deux équipes marquent : oui",
+       "pct": 44
+      },
+      {
+       "key": "btts_no",
+       "label": "Les deux équipes marquent : non",
+       "pct": 56
+      },
+      {
+       "key": "dc_1x",
+       "label": "Double chance 1X",
+       "pct": 41
+      },
+      {
+       "key": "dc_x2",
+       "label": "Double chance X2",
+       "pct": 83
+      },
+      {
+       "key": "dc_12",
+       "label": "Double chance 12",
+       "pct": 76
+      },
+      {
+       "key": "dnb_home",
+       "label": "Remboursé si nul : domicile",
+       "pct": 22
+      },
+      {
+       "key": "dnb_away",
+       "label": "Remboursé si nul : extérieur",
+       "pct": 78
+      }
+     ],
+     "scores": {
+      "suggestions": [
+       {
+        "score": "0-1",
+        "pct": 14
+       },
+       {
+        "score": "0-2",
+        "pct": 12
+       }
+      ],
+      "alternative": {
+       "score": "1-1",
+       "pct": 11
+      }
+     },
+     "htft": {
+      "ht": {
+       "home": 15,
+       "draw": 44,
+       "away": 41
+      },
+      "combos": [
+       {
+        "ht": 0,
+        "ft": 0,
+        "pct": 9
+       },
+       {
+        "ht": 0,
+        "ft": 1,
+        "pct": 4
+       },
+       {
+        "ht": 0,
+        "ft": 2,
+        "pct": 2
+       },
+       {
+        "ht": 1,
+        "ft": 0,
+        "pct": 7
+       },
+       {
+        "ht": 1,
+        "ft": 1,
+        "pct": 16
+       },
+       {
+        "ht": 1,
+        "ft": 2,
+        "pct": 21
+       },
+       {
+        "ht": 2,
+        "ft": 0,
+        "pct": 1
+       },
+       {
+        "ht": 2,
+        "ft": 1,
+        "pct": 4
+       },
+       {
+        "ht": 2,
+        "ft": 2,
+        "pct": 36
+       }
+      ]
+     },
+     "form": {
+      "home_team": {
+       "matches": 5,
+       "last": "NDVDV",
+       "goals_for": 1.0,
+       "goals_against": 1.0
+      },
+      "away_team": {
+       "matches": 5,
+       "last": "VVDDD",
+       "goals_for": 1.2,
+       "goals_against": 1.2
+      },
+      "home_team_at_home": {
+       "matches": 5,
+       "last": "DDDDD",
+       "goals_for": 0.2,
+       "goals_against": 3.0
+      },
+      "away_team_away": {
+       "matches": 5,
+       "last": "VDNDV",
+       "goals_for": 0.8,
+       "goals_against": 0.8
+      }
+     },
+     "odds": null,
+     "lineups": "non_confirmees"
+    },
+    {
+     "id": "fd-567360",
+     "competition": "Liga Portugal",
+     "competition_code": "PPL",
+     "kickoff_utc": "2026-11-30T20:15:00Z",
+     "home": "Sport Lisboa e Benfica",
+     "away": "FC Famalicão",
+     "model": {
+      "version": "poisson-dc-0.1",
+      "lambda_home": 1.938,
+      "lambda_away": 0.856,
+      "rho": 0.0,
+      "confidence": "moyenne",
+      "sample_matches": {
+       "home": 45,
+       "away": 45
+      }
+     },
+     "probs": {
+      "home": 63,
+      "draw": 21,
+      "away": 16
+     },
+     "markets": [
+      {
+       "key": "over_1_5",
+       "label": "Plus de 1,5 buts",
+       "pct": 77
+      },
+      {
+       "key": "under_1_5",
+       "label": "Moins de 1,5 buts",
+       "pct": 23
+      },
+      {
+       "key": "over_2_5",
+       "label": "Plus de 2,5 buts",
+       "pct": 53
+      },
+      {
+       "key": "under_2_5",
+       "label": "Moins de 2,5 buts",
+       "pct": 47
+      },
+      {
+       "key": "over_3_5",
+       "label": "Plus de 3,5 buts",
+       "pct": 31
+      },
+      {
+       "key": "under_3_5",
+       "label": "Moins de 3,5 buts",
+       "pct": 69
+      },
+      {
+       "key": "btts_yes",
+       "label": "Les deux équipes marquent : oui",
+       "pct": 49
+      },
+      {
+       "key": "btts_no",
+       "label": "Les deux équipes marquent : non",
+       "pct": 51
+      },
+      {
+       "key": "dc_1x",
+       "label": "Double chance 1X",
+       "pct": 84
+      },
+      {
+       "key": "dc_x2",
+       "label": "Double chance X2",
+       "pct": 37
+      },
+      {
+       "key": "dc_12",
+       "label": "Double chance 12",
+       "pct": 79
+      },
+      {
+       "key": "dnb_home",
+       "label": "Remboursé si nul : domicile",
+       "pct": 80
+      },
+      {
+       "key": "dnb_away",
+       "label": "Remboursé si nul : extérieur",
+       "pct": 20
+      }
+     ],
+     "scores": {
+      "suggestions": [
+       {
+        "score": "1-0",
+        "pct": 12
+       },
+       {
+        "score": "2-0",
+        "pct": 11
+       }
+      ],
+      "alternative": {
+       "score": "1-1",
+       "pct": 10
+      }
+     },
+     "htft": {
+      "ht": {
+       "home": 44,
+       "draw": 40,
+       "away": 16
+      },
+      "combos": [
+       {
+        "ht": 0,
+        "ft": 0,
+        "pct": 39
+       },
+       {
+        "ht": 0,
+        "ft": 1,
+        "pct": 4
+       },
+       {
+        "ht": 0,
+        "ft": 2,
+        "pct": 1
+       },
+       {
+        "ht": 1,
+        "ft": 0,
+        "pct": 21
+       },
+       {
+        "ht": 1,
+        "ft": 1,
+        "pct": 13
+       },
+       {
+        "ht": 1,
+        "ft": 2,
+        "pct": 7
+       },
+       {
+        "ht": 2,
+        "ft": 0,
+        "pct": 3
+       },
+       {
+        "ht": 2,
+        "ft": 1,
+        "pct": 4
+       },
+       {
+        "ht": 2,
+        "ft": 2,
+        "pct": 8
+       }
+      ]
+     },
+     "form": {
+      "home_team": {
+       "matches": 5,
+       "last": "VVVVD",
+       "goals_for": 1.8,
+       "goals_against": 1.2
+      },
+      "away_team": {
+       "matches": 5,
+       "last": "VDVDV",
+       "goals_for": 2.0,
+       "goals_against": 1.4
+      },
+      "home_team_at_home": {
+       "matches": 5,
+       "last": "VVVVN",
+       "goals_for": 2.0,
+       "goals_against": 0.8
+      },
+      "away_team_away": {
+       "matches": 5,
+       "last": "DVVND",
+       "goals_for": 2.0,
+       "goals_against": 1.2
       }
      },
      "odds": null,
