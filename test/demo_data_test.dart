@@ -1,10 +1,13 @@
 import 'package:bet_folder/app.dart';
+import 'package:bet_folder/core/app_data.dart';
 import 'package:bet_folder/core/app_text.dart';
 import 'package:bet_folder/data/demo_data.dart';
 import 'package:bet_folder/data/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  setUpAll(() => AppData.autoLoad = false);
+
   test('les probabilités 1X2 de démonstration totalisent 100 %', () {
     for (final m in DemoData.matches) {
       final p = m.probs;

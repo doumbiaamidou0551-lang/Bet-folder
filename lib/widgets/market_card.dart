@@ -29,6 +29,8 @@ class MarketCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gap = entry.gapPts;
+    final odds = entry.odds;
+    final implied = entry.impliedPct;
     return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,8 +40,8 @@ class MarketCard extends StatelessWidget {
             children: [
               Expanded(child: Text(entry.name, style: AppText.bold)),
               TagChip(
-                text: signedPts(gap),
-                color: gap > 0 ? AppColors.accent : AppColors.textMuted,
+                text: gap == null ? 'cote n.d.' : signedPts(gap),
+                color: (gap ?? 0) > 0 ? AppColors.accent : AppColors.textMuted,
               ),
             ],
           ),
@@ -53,14 +55,14 @@ class MarketCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _kv('Estimé', '${entry.estimatedPct} %'),
-              _kv('Cote', fmtOdds(entry.odds)),
-              _kv('Implicite', '${entry.impliedPct} %'),
+              _kv('Cote', odds == null ? 'n.d.' : fmtOdds(odds)),
+              _kv('Implicite', implied == null ? 'n.d.' : '$implied %'),
             ],
           ),
           const SizedBox(height: 8),
           Text(
             '${entry.confidence.label} · ${entry.risk.label}'
-            '${gap <= 0 ? ' · Pas d’avantage détecté' : ''}',
+            '${gap != null && gap <= 0 ? ' · Pas d’avantage détecté' : ''}',
             style: AppText.muted,
           ),
         ],

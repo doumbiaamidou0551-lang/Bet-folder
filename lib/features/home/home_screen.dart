@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_data.dart';
 import '../../core/app_text.dart';
+import '../../core/format.dart';
 import '../../data/demo_data.dart';
 import '../../data/models.dart';
 import '../../widgets/app_card.dart';
@@ -23,68 +25,131 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final todayMatches =
-        DemoData.matches.where((m) => m.dayOffset == 0).toList();
-    final todayAnalysed = todayMatches.where((m) => m.hasAnalysis).toList();
-    final analysedCount = DemoData.matches.where((m) => m.hasAnalysis).length;
-    final example = DemoData.nerisVallon.markets.first;
+    return ValueListenableBuilder<AppDataState>(
+      valueListenable: AppData.state,
+      builder: (context, data, _) {
+        final todayMatches = data.matches.where((m) => m.dayOffset == 0).toList();
+        final todayAnalysed = todayMatches.where((m) => m.hasAnalysis).toList();
+        final analysedCount = data.matches.where((m) => m.hasAnalysis).length;
+        final generated = data.generatedAt;
+        final stale =
+            generated != null && DateTime.now().difference(generated).inHours > 36;
+        final example = DemoData.nerisVallon.markets.first;
+        final hasOdds = data.matches.any(
+          (m) => m.analysis?.markets.any((e) => e.odds != null) ?? false,
+        );
 
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
-      children: [
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        return ListView(
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'BET-FOLDER',
+                  style: TextStyle(
+                    color: AppColors.accent,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                data.isLive ? const LiveBadge() : const DemoBadge(),
+              ],
+            ),
+            const SizedBox(height: 16),
             Text(
-              'BET-FOLDER',
-              style: TextStyle(
-                color: AppColors.accent,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.2,
-              ),
+              'Aujourd’hui',
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
-            DemoBadge(),
+            const SizedBox(height: 4),
+            Text(
+              data.isLive && generated != null
+                  ? 'Football · football-data.org · mise à jour le ${fmtDateTime(generated)}'
+                  : DemoData.updatedAtLabel,
+              style: AppText.muted,
+            ),
+            if (data.loading)
+              const Padding(
+                padding: EdgeInsets.only(top: 8),
+                child: LinearProgressIndicator(
+                  minHeight: 2,
+                  color: AppColors.accent,
+                  backgroundColor: AppColors.border,
+                ),
+              ),
+            if (data.message != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 6),
+                child: Text(
+                  data.message!,
+                  style: const TextStyle(color: AppColors.warning, fontSize: 12),
+                ),
+              ),
+            if (stale)
+              const Padding(
+                padding: EdgeInsets.only(top: 6),
+                child: Text(
+                  'Données anciennes : la mise à jour quotidienne est en retard.',
+                  style: TextStyle(color: AppColors.warning, fontSize: 12),
+                ),
+              ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: _StatTile(
+                    value: '$analysedCount',
+                    label: 'analyses disponibles',
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: _StatTile(
+                    value: '${todayMatches.length}',
+                    label: 'matchs aujourd’hui',
+                  ),
+                ),
+              ],
+            ),
+            const SectionTitle('Matchs du jour'),
+            if (todayAnalysed.isEmpty)
+              const Text(
+                'Aucun match analysé aujourd’hui. Voir l’onglet Matchs pour les jours suivants.',
+                style: AppText.muted,
+              ),
+            for (final m in todayAnalysed.take(5))
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: MatchCard(match: m, onTap: () => _open(context, m)),
+              ),
+            if (data.isLive)
+              const Padding(
+                padding: EdgeInsets.only(top: 8),
+                child: AppCard(
+                  borderColor: AppColors.warning,
+                  child: Text(
+                    hasOdds
+                        ? 'Cotes réelles chargées pour une partie des matchs (voir '
+                            'l’analyse de chaque match). Le Scanner, les Tickets et '
+                            'le Suivi utilisent encore la démonstration.'
+                        : 'Aucune cote chargée pour l’instant : le Scanner, les '
+                            'Tickets et le Suivi restent en démonstration.',
+                    style: TextStyle(color: AppColors.warning, fontSize: 12),
+                  ),
+                ),
+              )
+            else ...[
+              const SectionTitle('Marché à étudier (exemple)'),
+              MarketCard(entry: example, subtitle: DemoData.matches.first.title),
+            ],
+            const SizedBox(height: 16),
+            const Text(AppTexts.disclaimer, style: AppText.small),
           ],
-        ),
-        const SizedBox(height: 16),
-        Text(
-          'Aujourd’hui',
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium
-              ?.copyWith(fontWeight: FontWeight.w700),
-        ),
-        const SizedBox(height: 4),
-        const Text(DemoData.updatedAtLabel, style: AppText.muted),
-        const SizedBox(height: 12),
-        Row(
-          children: [
-            Expanded(
-              child: _StatTile(
-                value: '$analysedCount',
-                label: 'analyses disponibles',
-              ),
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: _StatTile(
-                value: '${todayMatches.length}',
-                label: 'matchs aujourd’hui',
-              ),
-            ),
-          ],
-        ),
-        const SectionTitle('Matchs du jour'),
-        for (final m in todayAnalysed.take(2))
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: MatchCard(match: m, onTap: () => _open(context, m)),
-          ),
-        const SectionTitle('Marché à étudier (exemple)'),
-        MarketCard(entry: example, subtitle: DemoData.matches.first.title),
-        const SizedBox(height: 16),
-        const Text(AppTexts.disclaimer, style: AppText.small),
-      ],
+        );
+      },
     );
   }
 }

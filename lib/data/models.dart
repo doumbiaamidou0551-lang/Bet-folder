@@ -42,60 +42,23 @@ class MarketEntry {
 
   final String name;
   final int estimatedPct;
-  final double odds;
+
+  /// Cote du bookmaker ; `null` quand aucune source de cotes n'est branchée.
+  final double? odds;
   final Confidence confidence;
   final RiskLevel risk;
 
   /// Probabilité implicite brute (sans retrait de la marge du bookmaker).
-  int get impliedPct => (100 / odds).round();
+  int? get impliedPct {
+    final value = odds;
+    return value == null ? null : (100 / value).round();
+  }
 
   /// Écart entre la probabilité estimée et la probabilité implicite brute.
-  int get gapPts => estimatedPct - impliedPct;
-}
-
-enum LineupStatus {
-  notConfirmed('Compositions non confirmées'),
-  probable('Compositions probables'),
-  confirmed('Compositions confirmées');
-
-  const LineupStatus(this.label);
-  final String label;
-}
-
-class PlayerStat {
-  const PlayerStat({
-    required this.name,
-    required this.team,
-    required this.role,
-    required this.goals,
-    required this.assists,
-    required this.shotsOnTarget,
-    required this.fouls,
-    required this.yellowCards,
-    required this.goalsPerMatch,
-    this.scorerPct,
-  });
-
-  final String name;
-  final String team;
-  final String role;
-  final int goals;
-  final int assists;
-  final double shotsOnTarget; // tirs cadrés par match
-  final double fouls; // fautes commises par match
-  final int yellowCards;
-  final double goalsPerMatch;
-
-  /// Probabilité estimée de marquer (modèle). Provisoire tant que les
-  /// compositions ne sont pas confirmées.
-  final int? scorerPct;
-}
-
-class TeamStatRow {
-  const TeamStatRow(this.label, this.home, this.away);
-  final String label;
-  final double home;
-  final double away;
+  int? get gapPts {
+    final implied = impliedPct;
+    return implied == null ? null : estimatedPct - implied;
+  }
 }
 
 /// Une combinaison « résultat à la mi-temps / résultat final ».
@@ -111,7 +74,7 @@ class HtFtEntry {
   final int ht;
   final int ft;
   final int pct;
-  final double odds;
+  final double? odds;
 
   static const List<String> _labels = ['Dom.', 'Nul', 'Ext.'];
 
@@ -172,6 +135,8 @@ class DemoMatch {
     this.probs,
     this.confidence,
     this.analysis,
+    this.isDemo = true,
+    this.kickoff,
   });
 
   final String id;
@@ -183,6 +148,12 @@ class DemoMatch {
   final Probabilities1X2? probs;
   final Confidence? confidence;
   final MatchAnalysis? analysis;
+
+  /// `false` pour les matchs issus des données réelles.
+  final bool isDemo;
+
+  /// Coup d'envoi (heure locale du téléphone), connu pour les données réelles.
+  final DateTime? kickoff;
 
   bool get hasAnalysis => probs != null;
   String get title => '$home – $away';

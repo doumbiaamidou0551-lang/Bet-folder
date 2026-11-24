@@ -7,12 +7,15 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from datetime import datetime, timedelta, timezone
 from typing import Callable
 
 from . import football_data_org as fdo
+from . import odds as odds_mod
+from .api_sports import ApiSportsClient
 from .poisson import (
     MODEL_VERSION,
     Result,
@@ -25,7 +28,7 @@ from .poisson import (
     top_scores,
 )
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 # Compétitions de l'offre gratuite de football-data.org.
 COMPETITIONS = [
@@ -38,6 +41,9 @@ COMPETITIONS = [
     ("DED", "Eredivisie"),
     ("PPL", "Liga Portugal"),
 ]
+
+# Identifiants API-Sports (API-Football) des mêmes compétitions.
+API_LEAGUE_IDS = {"PL": 39, "PD": 140, "SA": 135, "BL1": 78, "FL1": 61, "CL": 2, "DED": 88, "PPL": 94}
 
 MARKET_LABELS = [
     ("over_1_5", "Plus de 1,5 buts"),
@@ -136,7 +142,10 @@ def build_match(code: str, name: str, fixture: dict, results: list[Result], rati
         "probs": {"home": p1, "draw": px, "away": p2},
         "markets": [
             {"key": key, "label": label, "pct": round(mk[key] * 100)}
-            for key, label in MARKET_LABELS
+            for key, label in (
+                [("home", f"Victoire {home}"), ("draw", "Match nul"), ("away", f"Victoire {away}")]
+                + MARKET_LABELS
+            )
         ],
         "scores": scores,
         "htft": {
@@ -202,10 +211,73 @@ def build_football(
     return {"matches": matches, "excluded": excluded}
 
 
-def build_document(now: datetime, football: dict) -> dict:
+def enrich_with_odds(matches: list[dict], client, now: datetime, days: int = 2) -> dict:
+    """Ajoute les cotes API-Sports aux matchs des prochains jours. Renvoie un rapport."""
+    season = current_season_year(now)
+    start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    horizon = start + timedelta(days=days)
+    targets = [
+        m for m in matches
+        if start <= odds_mod.parse_iso(m["kickoff_utc"]) < horizon
+        and m["competition_code"] in API_LEAGUE_IDS
+    ]
+    report = {"enabled": True, "targets": len(targets), "matched": 0, "with_odds": 0,
+              "unmatched": [], "bookmakers": [], "bet_names": []}
+    if not targets:
+        report["requests"] = client.calls
+        return report
+
+    fixtures: list[dict] = []
+    for day in sorted({m["kickoff_utc"][:10] for m in targets}):
+        payload = client.get("fixtures", {"date": day})
+        if payload:
+            fixtures.extend(odds_mod.parse_fixtures(payload))
+    report["fixtures_listed"] = len(fixtures)
+
+    pairs: list[tuple[dict, dict]] = []
+    for m in targets:
+        league_id = API_LEAGUE_IDS[m["competition_code"]]
+        found = odds_mod.match_fixture(
+            m["home"], m["away"], odds_mod.parse_iso(m["kickoff_utc"]), league_id, fixtures
+        )
+        if found is None:
+            report["unmatched"].append(f"{m['home']} – {m['away']}")
+        else:
+            pairs.append((m, found))
+    report["matched"] = len(pairs)
+
+    odds_by_fixture: dict[int, dict] = {}
+    bookmakers_seen: set[str] = set()
+    bets_seen: set[str] = set()
+    combos = sorted({(f["league_id"], f["when"].strftime("%Y-%m-%d")) for _, f in pairs})
+    for league_id, day in combos:
+        page, total = 1, 1
+        while page <= total and page <= 3:
+            payload = client.get("odds", {"league": league_id, "season": season, "date": day, "page": page})
+            if not payload:
+                break
+            found, books, bets = odds_mod.parse_odds(payload)
+            odds_by_fixture.update(found)
+            bookmakers_seen |= books
+            bets_seen |= bets
+            total = int((payload.get("paging") or {}).get("total") or 1)
+            page += 1
+
+    for m, fixture in pairs:
+        if odds_mod.attach_odds(m, odds_by_fixture.get(fixture["id"])):
+            report["with_odds"] += 1
+    report["bookmakers"] = sorted(bookmakers_seen)[:30]
+    report["bet_names"] = sorted(bets_seen)[:60]
+    report["requests"] = client.calls
+    report["errors"] = client.errors[:10]
+    return report
+
+
+def build_document(now: datetime, football: dict, diagnostics: dict | None = None) -> dict:
     not_ready = {"status": "non_implemente", "matches": []}
     return {
         "schema": SCHEMA_VERSION,
+        "diagnostics": diagnostics or {},
         "generated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "data_sources": [
             {"name": "football-data.org", "sport": "football", "retrieved_at": now.strftime("%Y-%m-%dT%H:%M:%SZ")}
@@ -219,22 +291,46 @@ def build_document(now: datetime, football: dict) -> dict:
     }
 
 
+def clean_token(raw: str) -> str:
+    """Extrait le jeton d'un texte collé (espaces, retours à la ligne, libellé...)."""
+    runs = re.findall(r"[A-Za-z0-9]{20,}", raw or "")
+    return runs[0] if runs else ""
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", default="../data/latest.json")
     parser.add_argument("--days", type=int, default=7)
     args = parser.parse_args(argv)
 
-    token = os.environ.get("FOOTBALL_DATA_TOKEN", "").strip()
+    raw_token = os.environ.get("FOOTBALL_DATA_TOKEN", "")
+    token = clean_token(raw_token)
     if not token:
-        print("FOOTBALL_DATA_TOKEN absent : ajoutez-le dans les secrets du dépôt.")
+        print(
+            "FOOTBALL_DATA_TOKEN absent ou invalide : il doit contenir uniquement "
+            "des lettres et des chiffres, sans espace ni retour à la ligne."
+        )
         return 1
+    if token != raw_token:
+        print("Le secret contenait des caractères en trop : jeton nettoyé automatiquement.")
     now = datetime.now(timezone.utc)
     football = build_football(now, lambda code, season: fdo.fetch_competition(token, code, season), args.days)
-    document = build_document(now, football)
+    diagnostics: dict = {}
+    api_key = clean_token(os.environ.get("API_SPORTS_KEY", ""))
+    if api_key:
+        client = ApiSportsClient(api_key)
+        try:
+            diagnostics["api_sports"] = enrich_with_odds(football["matches"], client, now)
+        except Exception as error:  # les cotes sont un plus : on ne bloque jamais les probabilités
+            diagnostics["api_sports"] = {"enabled": True, "error": str(error)[:200]}
+        print("API-Sports :", json.dumps(diagnostics["api_sports"], ensure_ascii=False)[:600])
+    else:
+        diagnostics["api_sports"] = {"enabled": False, "reason": "API_SPORTS_KEY absent"}
+        print("API_SPORTS_KEY absent : cotes non chargées.")
+    document = build_document(now, football, diagnostics)
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as handle:
-        json.dump(document, handle, ensure_ascii=False, indent=1)
+        json.dump(document, handle, ensure_ascii=False, separators=(",", ":"))
     print(f"{len(football['matches'])} matchs analysés, {len(football['excluded'])} exclus.")
     return 0
 

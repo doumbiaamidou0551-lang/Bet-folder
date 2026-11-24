@@ -29,3 +29,17 @@ String fmtPct(double? value, {int digits = 0, bool signed = false}) {
   if (value < 0) return '−$text\u00A0%';
   return '${signed && value > 0 ? '+' : ''}$text\u00A0%';
 }
+
+const List<String> _months = [
+  'janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin',
+  'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.',
+];
+
+String _two(int n) => n.toString().padLeft(2, '0');
+
+/// Heure « 19:45 ».
+String fmtClock(DateTime d) => '${_two(d.hour)}:${_two(d.minute)}';
+
+/// Date et heure « 22 nov. à 23:36 ».
+String fmtDateTime(DateTime d) =>
+    '${d.day} ${_months[d.month - 1]} à ${fmtClock(d)}';

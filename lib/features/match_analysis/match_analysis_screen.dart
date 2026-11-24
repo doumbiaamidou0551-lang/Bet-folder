@@ -85,7 +85,9 @@ class _MatchAnalysisScreenState extends State<MatchAnalysisScreen> {
                   children: [
                     Text('${match.competition} · ${match.time}',
                         style: AppText.muted),
-                    const DemoBadge(label: 'DÉMO'),
+                    match.isDemo
+                        ? const DemoBadge(label: 'DÉMO')
+                        : const LiveBadge(label: 'RÉEL'),
                   ],
                 ),
                 const SizedBox(height: 10),

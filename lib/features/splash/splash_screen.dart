@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_data.dart';
 import '../../core/app_text.dart';
 import '../shell/main_shell.dart';
 
@@ -23,6 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    if (AppData.autoLoad) unawaited(AppData.load());
     _timer = Timer(const Duration(milliseconds: 2600), _goHome);
   }
 

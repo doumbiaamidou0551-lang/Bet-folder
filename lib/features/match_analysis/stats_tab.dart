@@ -23,6 +23,18 @@ class StatsTab extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (analysis.players.isEmpty) ...[
+          const SectionTitle('Joueurs'),
+          const AppCard(
+            child: Text(
+              'Statistiques des joueurs (buteurs probables, passes, fautes, '
+              'tirs cadrés, cartons) : non disponibles avec la source gratuite '
+              'actuelle. Elles demandent une source de données détaillées '
+              '(étape suivante).',
+              style: AppText.muted,
+            ),
+          ),
+        ] else ...[
         const SectionTitle('Buteurs probables'),
         AppCard(
           borderColor: confirmed ? AppColors.accent : AppColors.warning,
@@ -91,7 +103,8 @@ class StatsTab extends StatelessWidget {
             style: AppText.small,
           ),
         ),
-        const SectionTitle('Équipes · 10 derniers matchs'),
+        ],
+        const SectionTitle('Équipes · forme récente'),
         AppCard(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
           child: Column(

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_data.dart';
 import '../../core/app_text.dart';
 import '../../core/favorites_store.dart';
+import '../../core/format.dart';
 import '../../data/demo_data.dart';
 import '../../data/models.dart';
 import '../../widgets/app_card.dart';
@@ -17,7 +19,7 @@ class MatchesScreen extends StatefulWidget {
 }
 
 class _MatchesScreenState extends State<MatchesScreen> {
-  int _day = 0;
+  int _day = 0; // 0 = aujourd'hui, 1 = demain, 2 = plus tard
   bool _favoritesOnly = false;
 
   Widget _chip(String label, bool selected, ValueChanged<bool> onSelected) {
@@ -36,71 +38,110 @@ class _MatchesScreenState extends State<MatchesScreen> {
     );
   }
 
+  bool _inDay(DemoMatch m) =>
+      _day == 2 ? m.dayOffset >= 2 : m.dayOffset == _day;
+
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<Set<String>>(
-      valueListenable: FavoritesStore.favorites,
-      builder: (context, favorites, _) {
-        final visible = DemoData.matches
-            .where((m) =>
-                m.dayOffset == _day &&
-                (!_favoritesOnly || favorites.contains(m.id)))
-            .toList();
-        final groups = <String, List<DemoMatch>>{};
-        for (final m in visible) {
-          groups.putIfAbsent(m.competition, () => <DemoMatch>[]).add(m);
-        }
+    return ValueListenableBuilder<AppDataState>(
+      valueListenable: AppData.state,
+      builder: (context, data, _) {
+        return ValueListenableBuilder<Set<String>>(
+          valueListenable: FavoritesStore.favorites,
+          builder: (context, favorites, _) {
+            final visible = data.matches
+                .where((m) =>
+                    _inDay(m) && (!_favoritesOnly || favorites.contains(m.id)))
+                .toList();
+            final groups = <String, List<DemoMatch>>{};
+            for (final m in visible) {
+              groups.putIfAbsent(m.competition, () => <DemoMatch>[]).add(m);
+            }
+            final generated = data.generatedAt;
 
-        return ListView(
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
-          children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Matchs',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-                DemoBadge(),
-              ],
-            ),
-            const SizedBox(height: 12),
-            Wrap(
-              spacing: 8,
-              children: [
-                _chip('Aujourd’hui', _day == 0, (_) => setState(() => _day = 0)),
-                _chip('Demain', _day == 1, (_) => setState(() => _day = 1)),
-                _chip(
-                  'Favoris',
-                  _favoritesOnly,
-                  (v) => setState(() => _favoritesOnly = v),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            const Text(DemoData.updatedAtLabel, style: AppText.muted),
-            if (visible.isEmpty)
-              const Padding(
-                padding: EdgeInsets.only(top: 24),
-                child: Text(
-                  'Aucun match pour ce filtre.',
-                  style: AppText.muted,
-                ),
+            return RefreshIndicator(
+              onRefresh: AppData.load,
+              color: AppColors.accent,
+              backgroundColor: AppColors.surfaceHigh,
+              child: ListView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Matchs',
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                      ),
+                      data.isLive ? const LiveBadge() : const DemoBadge(),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 8,
+                    children: [
+                      _chip('Aujourd’hui', _day == 0, (_) => setState(() => _day = 0)),
+                      _chip('Demain', _day == 1, (_) => setState(() => _day = 1)),
+                      _chip('Plus tard', _day == 2, (_) => setState(() => _day = 2)),
+                      _chip(
+                        'Favoris',
+                        _favoritesOnly,
+                        (v) => setState(() => _favoritesOnly = v),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    data.isLive && generated != null
+                        ? 'Données réelles · mise à jour le ${fmtDateTime(generated)} · tirez vers le bas pour actualiser'
+                        : DemoData.updatedAtLabel,
+                    style: AppText.muted,
+                  ),
+                  if (data.message != null)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: Text(
+                        data.message!,
+                        style: const TextStyle(color: AppColors.warning, fontSize: 12),
+                      ),
+                    ),
+                  if (data.isLive && data.excludedCount > 0)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: Text(
+                        '${data.excludedCount} match(s) exclu(s) : historique insuffisant pour une équipe.',
+                        style: AppText.small,
+                      ),
+                    ),
+                  if (visible.isEmpty)
+                    const Padding(
+                      padding: EdgeInsets.only(top: 24),
+                      child: Text(
+                        'Aucun match pour ce filtre.',
+                        style: AppText.muted,
+                      ),
+                    ),
+                  for (final entry in groups.entries) ...[
+                    SectionTitle(entry.key),
+                    for (final m in entry.value)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: _MatchRow(
+                          match: m,
+                          isFavorite: favorites.contains(m.id),
+                        ),
+                      ),
+                  ],
+                  const SizedBox(height: 12),
+                  const Text(
+                    'Estimations statistiques, aucune garantie de résultat.',
+                    style: AppText.small,
+                  ),
+                ],
               ),
-            for (final entry in groups.entries) ...[
-              SectionTitle(entry.key),
-              for (final m in entry.value)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: _MatchRow(match: m, isFavorite: favorites.contains(m.id)),
-                ),
-            ],
-            const SizedBox(height: 12),
-            const Text(
-              'Estimations statistiques, aucune garantie de résultat.',
-              style: AppText.small,
-            ),
-          ],
+            );
+          },
         );
       },
     );

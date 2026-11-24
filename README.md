@@ -31,3 +31,16 @@ Splash, calendrier, Corner & Card Lab, favoris dédiés, paramètres, notificati
 - L’application ne lit pas encore ce fichier : elle sera branchée dessus dès que le premier fichier réel existe (voir `GUIDE_DONNEES_REELLES.md`).
 - `tools/make_icon.py` génère l’icône (monogramme BF, flèche verte, lueurs bleue et rouge).
 - **Écran de démarrage** (`lib/features/splash`) : portrait en fond, monogramme BF, slogan « Analyse · Probabilités · Discipline », sports couverts. Touchez l’écran pour passer. Le fond de lancement Android est aussi bleu nuit.
+
+## Version 3g : l'application lit les données réelles
+- Au démarrage, l'application télécharge `data/latest.json` (publié chaque jour par GitHub). Si Internet est coupé, elle affiche les dernières données enregistrées, sinon la démonstration. Tirer vers le bas dans « Matchs » actualise.
+- Accueil, Matchs et Analyse affichent les matchs réels (badge « DONNÉES RÉELLES »). Pas de cotes : l'écart n'est pas calculé. Pas de statistiques de joueurs avec la source gratuite.
+- Scanner, Tickets et Suivi restent en démonstration, car ils ont besoin de cotes et d'un historique réel.
+- Le fichier `build-apk.yml` ajoute la permission Internet à l'application Android.
+
+## Version 3h : cotes réelles (API-Sports)
+- Le moteur récupère les cotes avant-match chez API-Sports (clé `API_SPORTS_KEY`), rapproche les matchs des deux sources (nom + heure + compétition) et ajoute les cotes aux marchés : 1X2, plus/moins 1,5 / 2,5 / 3,5, les deux équipes marquent, double chance, mi-temps/fin de match.
+- Bookmaker de référence : Pinnacle, sinon Bet365, 1xBet, etc. Le nom et l'heure de relevé sont affichés dans « Limites ».
+- Budget : environ 35 requêtes par jour sur les 100 de l'offre gratuite (matchs d'aujourd'hui et de demain).
+- `data/latest.json` contient un bloc `diagnostics.api_sports` (requêtes utilisées, matchs rapprochés, noms de paris vus) pour contrôler le résultat.
+- Scanner, Tickets et Suivi utilisent encore la démonstration : ils passeront aux cotes réelles une fois leur chargement vérifié.

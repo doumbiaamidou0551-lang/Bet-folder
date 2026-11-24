@@ -127,6 +127,16 @@ class ProviderTests(unittest.TestCase):
         self.assertEqual(fixtures[0]["home"], "C")
 
 
+class TokenTests(unittest.TestCase):
+    def test_clean_token_removes_junk(self):
+        tok = "0123456789abcdef0123456789abcdef"
+        self.assertEqual(pipeline.clean_token(tok), tok)
+        self.assertEqual(pipeline.clean_token(f"  {tok}\n"), tok)
+        self.assertEqual(pipeline.clean_token(f"API token:\n{tok}\n"), tok)
+        self.assertEqual(pipeline.clean_token(""), "")
+        self.assertEqual(pipeline.clean_token("trop court"), "")
+
+
 class PipelineTests(unittest.TestCase):
     def test_document_for_a_fake_competition(self):
         names, _, _, results = synthetic_league(seed=11)
@@ -155,7 +165,7 @@ class PipelineTests(unittest.TestCase):
 
         football = pipeline.build_football(NOW, fake_fetch, pause=lambda s: None)
         doc = pipeline.build_document(NOW, football)
-        self.assertEqual(doc["schema"], 1)
+        self.assertEqual(doc["schema"], 2)
         self.assertEqual(doc["sports"]["basketball"]["status"], "non_implemente")
         matches = doc["sports"]["football"]["matches"]
         self.assertEqual(len(matches), 3)
