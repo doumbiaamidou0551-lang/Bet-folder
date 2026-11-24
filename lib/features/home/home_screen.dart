@@ -126,8 +126,8 @@ class HomeScreen extends StatelessWidget {
                 child: MatchCard(match: m, onTap: () => _open(context, m)),
               ),
             if (data.isLive)
-              const Padding(
-                padding: EdgeInsets.only(top: 8),
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
                 child: AppCard(
                   borderColor: AppColors.warning,
                   child: Text(

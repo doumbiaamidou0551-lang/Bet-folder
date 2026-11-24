@@ -61,6 +61,51 @@ class MarketEntry {
   }
 }
 
+enum LineupStatus {
+  notConfirmed('Compositions non confirmées'),
+  probable('Compositions probables'),
+  confirmed('Compositions confirmées');
+
+  const LineupStatus(this.label);
+  final String label;
+}
+
+class PlayerStat {
+  const PlayerStat({
+    required this.name,
+    required this.team,
+    required this.role,
+    required this.goals,
+    required this.assists,
+    required this.shotsOnTarget,
+    required this.fouls,
+    required this.yellowCards,
+    required this.goalsPerMatch,
+    this.scorerPct,
+  });
+
+  final String name;
+  final String team;
+  final String role;
+  final int goals;
+  final int assists;
+  final double shotsOnTarget; // tirs cadrés par match
+  final double fouls; // fautes commises par match
+  final int yellowCards;
+  final double goalsPerMatch;
+
+  /// Probabilité estimée de marquer (modèle). Provisoire tant que les
+  /// compositions ne sont pas confirmées.
+  final int? scorerPct;
+}
+
+class TeamStatRow {
+  const TeamStatRow(this.label, this.home, this.away);
+  final String label;
+  final double home;
+  final double away;
+}
+
 /// Une combinaison « résultat à la mi-temps / résultat final ».
 class HtFtEntry {
   const HtFtEntry({
