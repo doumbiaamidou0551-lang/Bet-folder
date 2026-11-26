@@ -75,8 +75,11 @@ class AppData {
       } catch (_) {
         // Enregistrement impossible : sans conséquence.
       }
-    } catch (_) {
+    } catch (error) {
       final now = state.value;
+      final firstLine = error.toString().split('\n').first;
+      final detail =
+          firstLine.length > 140 ? '${firstLine.substring(0, 140)}…' : firstLine;
       state.value = AppDataState(
         matches: now.matches,
         source: now.source,
@@ -84,8 +87,8 @@ class AppData {
         excludedCount: now.excludedCount,
         loading: false,
         message: now.isLive
-            ? 'Hors connexion : dernières données enregistrées.'
-            : 'Données réelles indisponibles pour l’instant : démonstration affichée.',
+            ? 'Hors connexion : dernières données enregistrées. ($detail)'
+            : 'Données réelles indisponibles : démonstration affichée. ($detail)',
       );
     }
   }
